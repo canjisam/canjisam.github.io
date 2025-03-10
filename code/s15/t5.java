@@ -1,67 +1,95 @@
 package s15;
 import java.util.*;
+
+/**
+ * 试题 E: 最大分数
+ * 
+ * 【题目描述】
+ * 有一个游戏，玩家可以使用2分、3分和4分的牌，需要放入4分槽和6分槽中。
+ * 每个分槽可以放入多张牌，但总分必须正好等于槽的分值。
+ * 给定各种分值的牌的数量和分槽的数量，求能获得的最大总分。
+ * 
+ * 【输入格式】
+ * 第一行一个整数T，表示测试用例数
+ * 接下来T行，每行5个整数：
+ * a2, a3, a4：分别表示2分、3分、4分牌的数量
+ * b4, b6：分别表示4分槽和6分槽的数量
+ * 
+ * 【输出格式】
+ * 对于每个测试用例输出一行，表示能获得的最大分数
+ * 
+ * 【解题思路】
+ * 1. 使用贪心算法，优先使用大分值的组合
+ * 2. 对于4分槽，优先使用4分牌，其次是2+2分
+ * 3. 对于6分槽，按以下顺序尝试：
+ *    - 4+2分组合
+ *    - 3+3分组合
+ *    - 2+2+2分组合
+ * 4. 最后处理剩余的单牌
+ */
 public class t5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();  // 测试用例数量
+        
+        for (int i = 0; i < n; i++) {
+            // 读入每种牌的数量和分槽数量
+            int a2 = sc.nextInt();  // 2分牌数量
+            int a3 = sc.nextInt();  // 3分牌数量
+            int a4 = sc.nextInt();  // 4分牌数量
+            int b4 = sc.nextInt();  // 4分槽数量
+            int b6 = sc.nextInt();  // 6分槽数量
 
-	 public static void main(String[] args) {
-	        // TODO Auto-generated method stub
-	        Scanner sc = new Scanner(System.in);
-	        // �ڴ��������Ĵ���...
-	        int n = sc.nextInt();
-	        for (int i = 0; i < n; i++) {
-	            int a2 = sc.nextInt();
-	            int a3 = sc.nextInt();
-	            int a4 = sc.nextInt();
-	            int b4 = sc.nextInt();
-	            int b6 = sc.nextInt();
+            int ans = 0;  // 记录总分
+            
+            // 优先处理完整分值的组合
+            while (b4 > 0 && a4 >= 1) {  // 用4分牌填4分槽
+                b4--; a4--; ans += 4;
+            }
+            while (b4 > 0 && a2 >= 2) {  // 用2+2分牌填4分槽
+                b4--; a2 -= 2; ans += 4;
+            }
+            while (b6 > 0 && a4 >= 1 && a2 >= 1) {  // 用4+2分牌填6分槽
+                b6--; a4--; a2--; ans += 6;
+            }
+            while (b6 > 0 && a3 >= 2) {  // 用3+3分牌填6分槽
+                b6--; a3 -= 2; ans += 6;
+            }
+            while (b6 > 0 && a2 >= 3) {  // 用2+2+2分牌填6分槽
+                b6--; a2 -= 3; ans += 6;
+            }
+            
+            // 处理剩余的不完整组合
+            // 处理5分组合
+            while (b6 > 0 && a3 >= 1 && a2 >= 1) {  // 用3+2分牌
+                b6--; a3--; a2--; ans += 5;
+            }
+            while (b4 > 0 && a3 >= 1) {  // 用3分牌填4分槽
+                b4--; a3--; ans += 3;
+            }
+            
+            // 处理4分组合
+            while (b6 > 0 && a4 >= 1) {  // 用4分牌
+                b6--; a4--; ans += 4;
+            }
+            while (b6 > 0 && a2 >= 2) {  // 用2+2分牌
+                b6--; a2 -= 2; ans += 4;
+            }
+            while (b4 > 0 && a2 >= 1) {  // 用2分牌填4分槽
+                b4--; a2--; ans += 2;
+            }
+            
+            // 处理3分和2分
+            while (b6 > 0 && a3 >= 1) {  // 用3分牌
+                b6--; a3--; ans += 3;
+            }
+            while (b6 > 0 && a2 >= 1) {  // 用2分牌
+                b6--; a2--; ans += 2;
+            }
+            
+            System.out.println(ans);
+        }
 
-	            int ans = 0;
-	            //������λ����
-	            while(b4>0 && a4>=1) {//4
-	                b4--;a4--;ans+=4;             
-	            }
-	            while(b4>0 && a2>=2) {//2+2
-	                b4--;a2-=2;ans+=4;
-	            }
-	            while(b6>0 && a4>=1 && a2>=1) {//4+2
-	                b6--;a4--;a2--;ans+=6;
-	            }
-	            while(b6>0 && a3>=2) {//3+3
-	                b6--;a3-=2;ans+=6;
-	            }
-	            while(b6>0 && a2>=3) {//2+2+2
-	                b6--;a2-=3;ans+=6;
-	            }
-	            //��λ������
-	            //��һ��λ
-	            while(b6>0 && a3>=1 && a2>=1) {//3+2
-	                b6--;a3--;a2--;ans+=5;
-	            }
-	            while(b4>0 && a3>=1) {//3
-	                b4--;a3--;ans+=3;
-	            }
-	            //������λ
-	            while(b6>0 && a4>=1) {//4
-	                b6--;a4--;ans+=4;
-	            }
-	            while(b6>0 && a2>=2) {//2+2
-	                b6--;a2-=2;ans+=4;
-	            }
-	            while(b4>0 && a2>=1) {//2
-	                b4--;a2--;ans+=2;
-	            }
-	            //������λ
-	            while(b6>0 && a3>=1) {//3
-	                b6--;a3--;ans+=3;
-	            }
-	            //������λ
-	            while(b6>0 && a2>=1) {//2
-	                b6--;a2--;ans+=2;
-	            }
-	            System.out.println(ans);
-	        }
-
-	        sc.close();
-	    }
-
-
+        sc.close();
+    }
 }
