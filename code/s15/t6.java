@@ -1,128 +1,164 @@
 package s15;
 import java.util.*;
+
+/**
+ * è¯•é¢˜ F: å¯è¾¾æ€§ç»Ÿè®¡
+ * 
+ * ã€é¢˜ç›®æè¿°ã€‘
+ * ç»™å®šä¸€ä¸ªæ— å‘å›¾ï¼Œæœ‰nä¸ªèŠ‚ç‚¹å’Œmæ¡è¾¹ã€‚
+ * å¯¹äºæ¯ä¸ªæŸ¥è¯¢(x,y)ï¼Œæ±‚ä»èŠ‚ç‚¹xå‡ºå‘ï¼Œæœ€å¤šèµ°yæ­¥èƒ½åˆ°è¾¾å¤šå°‘ä¸ªä¸åŒçš„èŠ‚ç‚¹ã€‚
+ * è¾“å‡ºæ‰€æœ‰æŸ¥è¯¢çš„å¹³å‡å€¼ã€‚
+ * 
+ * ã€è¾“å…¥æ ¼å¼ã€‘
+ * ç¬¬ä¸€è¡Œä¸‰ä¸ªæ•´æ•°n,m,qï¼Œè¡¨ç¤ºèŠ‚ç‚¹æ•°ã€è¾¹æ•°å’ŒæŸ¥è¯¢æ•°
+ * æ¥ä¸‹æ¥mè¡Œï¼Œæ¯è¡Œä¸¤ä¸ªæ•´æ•°a,bï¼Œè¡¨ç¤ºèŠ‚ç‚¹aå’Œbä¹‹é—´æœ‰ä¸€æ¡æ— å‘è¾¹
+ * æ¥ä¸‹æ¥qè¡Œï¼Œæ¯è¡Œä¸¤ä¸ªæ•´æ•°x,yï¼Œè¡¨ç¤ºä¸€ä¸ªæŸ¥è¯¢
+ * 
+ * ã€è¾“å‡ºæ ¼å¼ã€‘
+ * è¾“å‡ºä¸€ä¸ªå®æ•°ï¼Œè¡¨ç¤ºæ‰€æœ‰æŸ¥è¯¢ç»“æœçš„å¹³å‡å€¼ï¼Œä¿ç•™ä¸¤ä½å°æ•°
+ * 
+ * ã€è§£é¢˜æ€è·¯ã€‘
+ * æœ¬é¢˜æä¾›äº†ä¸¤ç§è§£æ³•ï¼š
+ * 1. BFSï¼ˆå¹¿åº¦ä¼˜å…ˆæœç´¢ï¼‰ï¼š
+ *    - å¯¹æ¯ä¸ªæŸ¥è¯¢ï¼Œç”¨BFSéå†ä»èµ·ç‚¹å‡ºå‘æœ€å¤šyæ­¥èƒ½åˆ°è¾¾çš„æ‰€æœ‰èŠ‚ç‚¹
+ *    - ä½¿ç”¨visitedæ•°ç»„é¿å…é‡å¤è®¿é—®
+ *    - è®°å½•æ­¥æ•°ç¡®ä¿ä¸è¶…è¿‡é™åˆ¶
+ * 
+ * 2. Floydç®—æ³•ï¼š
+ *    - é¢„å¤„ç†å‡ºæ‰€æœ‰ç‚¹å¯¹ä¹‹é—´çš„æœ€çŸ­è·¯å¾„
+ *    - å¯¹æ¯ä¸ªæŸ¥è¯¢(x,y)ï¼Œç»Ÿè®¡ä¸xçš„è·ç¦»ä¸è¶…è¿‡yçš„èŠ‚ç‚¹æ•°
+ *    - è¿™ç§æ–¹æ³•åœ¨å¤šæ¬¡æŸ¥è¯¢æ—¶æ›´é«˜æ•ˆ
+ */
 public class t6 {
+    static int n, m, q;  // n:èŠ‚ç‚¹æ•°ï¼Œm:è¾¹æ•°ï¼Œq:æŸ¥è¯¢æ•°é‡
+    static ArrayList<ArrayList<Integer>> g = new ArrayList<>();  // å›¾çš„é‚»æ¥è¡¨è¡¨ç¤º
+    static double ans = 0;  // å­˜å‚¨æ‰€æœ‰æŸ¥è¯¢çš„å¹³å‡ç»“æœ
+    static Scanner sc = new Scanner(System.in);
 
-	 static int n, m, q; // n:½ÚµãÊı£¬m:±ßÊı£¬q:²éÑ¯´ÎÊı
-	    static ArrayList<ArrayList<Integer>> g = new ArrayList<>(); // Í¼µÄÁÚ½Ó±í±íÊ¾
-	    static double ans = 0; // ´æ´¢ËùÓĞ²éÑ¯µÄÆ½¾ù½á¹û
-	    static Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        floyd();  // ä½¿ç”¨Floydç®—æ³•è§£å†³
+        // bfs2();  // æˆ–è€…ä½¿ç”¨BFSè§£å†³
+        sc.close();
+    }
 
-	    public static void main(String[] args) {
-	        floyd();
-	        // bfs2();
-	        sc.close();
-	    }
+    /**
+     * BFSæ–¹æ³•è®¡ç®—ä»èŠ‚ç‚¹xå‡ºå‘ï¼Œæœ€å¤šèµ°stepæ­¥èƒ½åˆ°è¾¾çš„ä¸åŒèŠ‚ç‚¹æ•°
+     * @param x èµ·å§‹èŠ‚ç‚¹
+     * @param step æœ€å¤§æ­¥æ•°é™åˆ¶
+     * @return å¯åˆ°è¾¾çš„ä¸åŒèŠ‚ç‚¹æ•°
+     */
+    public static int bfs(int x, int step) {
+        Queue<int[]> q = new LinkedList<>();  // åˆ›å»ºé˜Ÿåˆ—ï¼Œå­˜å‚¨èŠ‚ç‚¹å’Œå½“å‰æ­¥æ•°
+        boolean[] vis = new boolean[n + 1];  // è®¿é—®æ ‡è®°æ•°ç»„ï¼Œé˜²æ­¢é‡å¤è®¿é—®
+        q.offer(new int[]{x, 0});  // åˆå§‹èŠ‚ç‚¹xï¼Œæ­¥æ•°ä¸º0
+        vis[x] = true;  // æ ‡è®°xä¸ºå·²è®¿é—®
+        int count = 1;  // è®°å½•å¯åˆ°è¾¾èŠ‚ç‚¹æ•°ï¼Œåˆå§‹ä¸º1ï¼ˆåŒ…æ‹¬è‡ªå·±ï¼‰
 
-	    // ¹ã¶ÈÓÅÏÈËÑË÷£¨BFS£©º¯Êı
-	    public static int bfs(int x, int step) {
-	        Queue<int[]> q = new LinkedList<>(); // ´´½¨Ò»¸ö¶ÓÁĞ£¬´æ´¢½ÚµãºÍµ±Ç°²½Êı
-	        boolean[] vis = new boolean[n + 1]; // ·ÃÎÊ±ê¼ÇÊı×é£¬·ÀÖ¹ÖØ¸´·ÃÎÊ
-	        q.offer(new int[]{x, 0}); // ³õÊ¼½Úµãx£¬²½ÊıÎª0
-	        vis[x] = true; // ±ê¼ÇxÎªÒÑ·ÃÎÊ
-	        int count = 1; // ¼ÇÂ¼ÔÚstep²½ÊıÄÚ¿ÉÒÔµ½´ïµÄ½ÚµãÊı£¬³õÊ¼Îª1£¨Æğµã±¾Éí£©
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            int node = cur[0];  // å½“å‰èŠ‚ç‚¹
+            int ts = cur[1];    // å½“å‰æ­¥æ•°
 
-	        while (!q.isEmpty()) { // ¶ÓÁĞ²»Îª¿ÕÊ±¼ÌĞø±éÀú
-	            int[] cur = q.poll(); // È¡³ö¶ÓÁĞÖĞµÄµÚÒ»¸öÔªËØ
-	            int node = cur[0]; // µ±Ç°½Úµã
-	            int ts = cur[1]; // µ±Ç°²½Êı
+            if (ts < step) {  // å¦‚æœå½“å‰æ­¥æ•°å°äºé™åˆ¶ï¼Œç»§ç»­æœç´¢é‚»å±…
+                for (int neighbor : g.get(node)) {
+                    if (!vis[neighbor]) {
+                        vis[neighbor] = true;
+                        count++;
+                        q.offer(new int[]{neighbor, ts + 1});
+                    }
+                }
+            }
+        }
 
-	            if (ts < step) { // Èç¹ûµ±Ç°²½ÊıĞ¡ÓÚÄ¿±ê²½Êı£¬Ôò¼ÌĞø±éÀúÆäÁÚ¾Ó
-	                for (int neighbor : g.get(node)) { // ±éÀúµ±Ç°½ÚµãµÄËùÓĞÁÚ¾Ó
-	                    if (!vis[neighbor]) { // Èç¹ûÁÚ¾ÓÎ´±»·ÃÎÊ¹ı
-	                        vis[neighbor] = true; // ±ê¼ÇÁÚ¾ÓÎªÒÑ·ÃÎÊ
-	                        count++; // ¿Éµ½´ï½ÚµãÊı¼Ó1
-	                        q.offer(new int[]{neighbor, ts + 1}); // ½«ÁÚ¾Ó¼°Æä²½Êı¼Ó1¼ÓÈë¶ÓÁĞ
-	                    }
-	                }
-	            }
-	        }
+        return count;
+    }
 
-	        return count; // ·µ»ØÔÚstep²½ÊıÄÚ¿ÉÒÔµ½´ïµÄ½ÚµãÊı
-	    }
+    /**
+     * ä½¿ç”¨BFSæ–¹æ³•è§£å†³æ•´ä¸ªé—®é¢˜
+     */
+    public static void bfs2() {
+        n = sc.nextInt();  // è¯»å…¥èŠ‚ç‚¹æ•°
+        m = sc.nextInt();  // è¯»å…¥è¾¹æ•°
+        q = sc.nextInt();  // è¯»å…¥æŸ¥è¯¢æ•°é‡
 
-	    public static void bfs2() {
-	        n = sc.nextInt(); // ÊäÈë½ÚµãÊı
-	        m = sc.nextInt(); // ÊäÈë±ßÊı
-	        q = sc.nextInt(); // ÊäÈë²éÑ¯´ÎÊı
+        // åˆå§‹åŒ–é‚»æ¥è¡¨
+        g.clear();
+        for (int i = 0; i <= n; i++) {
+            g.add(new ArrayList<>());
+        }
 
-	        // ³õÊ¼»¯ÁÚ½Ó±í
-	        g.clear();
-	        for (int i = 0; i <= n; i++) {
-	            g.add(new ArrayList<>());
-	        }
+        // å»ºå›¾
+        for (int i = 1; i <= m; i++) {
+            int a = sc.nextInt();  // è¯»å…¥è¾¹çš„èµ·ç‚¹
+            int b = sc.nextInt();  // è¯»å…¥è¾¹çš„ç»ˆç‚¹
+            g.get(a).add(b);  // æ— å‘å›¾ï¼Œä¸¤ä¸ªæ–¹å‘éƒ½è¦è¿è¾¹
+            g.get(b).add(a);
+        }
 
-	        // ¹¹½¨Í¼
-	        for (int i = 1; i <= m; i++) {
-	            int a = sc.nextInt(); // ÊäÈë±ßµÄÆğµã
-	            int b = sc.nextInt(); // ÊäÈë±ßµÄÖÕµã
-	            g.get(a).add(b); // ÎŞÏòÍ¼£¬ËùÒÔÁ½±ß¶¼ÒªÌí¼Ó
-	            g.get(b).add(a);
-	        }
+        // å¤„ç†æ¯ä¸ªæŸ¥è¯¢
+        for (int i = 1; i <= q; i++) {
+            int x = sc.nextInt();  // æŸ¥è¯¢çš„èµ·ç‚¹
+            int y = sc.nextInt();  // æŸ¥è¯¢çš„æ­¥æ•°
+            ans += bfs(x, y);  // ç´¯åŠ æ¯ä¸ªæŸ¥è¯¢çš„ç»“æœ
+        }
 
-	        // ´¦ÀíÃ¿¸ö²éÑ¯
-	        for (int i = 1; i <= q; i++) {
-	            int x = sc.nextInt(); // ²éÑ¯µÄÆğµã
-	            int y = sc.nextInt(); // ²éÑ¯µÄ²½Êı
-	            ans += bfs(x, y); // ¼ÆËãÃ¿¸ö²éÑ¯µÄ½á¹û²¢ÀÛ¼Óµ½ans
-	        }
+        // è¾“å‡ºå¹³å‡ç»“æœï¼Œä¿ç•™ä¸¤ä½å°æ•°
+        System.out.printf("%.2f\n", ans / q);
+    }
 
-	        // Êä³öÆ½¾ù½á¹û£¬±£ÁôÁ½Î»Ğ¡Êı
-	        System.out.printf("%.2f\n", ans / q);
-	    }
+    static int[][] d = new int[1010][1010];  // Floydç®—æ³•çš„è·ç¦»çŸ©é˜µ
 
-	    static int[][] d = new int[1010][1010];
+    /**
+     * ä½¿ç”¨Floydç®—æ³•è§£å†³é—®é¢˜
+     */
+    public static void floyd() {
+        Scanner sc = new Scanner(System.in);
+        long n, m, Q;
+        n = sc.nextInt();
+        m = sc.nextInt();
+        Q = sc.nextInt();
 
-	    // FloydËã·¨
-	    public static void floyd() {
-	        Scanner sc = new Scanner(System.in);
-	        long n, m, Q;
-	        n = sc.nextInt();
-	        m = sc.nextInt();
-	        Q = sc.nextInt();
+        // åˆå§‹åŒ–è·ç¦»çŸ©é˜µ
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == j) {
+                    d[i][j] = 0;
+                } else {
+                    d[i][j] = (int) 1e9;
+                }
+            }
+        }
 
-	        // ³õÊ¼»¯¾àÀë¾ØÕó
-	        for (int i = 1; i <= n; i++) {
-	            for (int j = 1; j <= n; j++) {
-	                if (i == j) {
-	                    d[i][j] = 0;
-	                } else {
-	                    d[i][j] = (int) 1e9;
-	                }
-	            }
-	        }
+        // å»ºå›¾
+        for (int i = 0; i < m; i++) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            d[a][b] = d[b][a] = 1;  // æ— å‘å›¾ï¼Œè·ç¦»ä¸º1
+        }
 
-	        // ¹¹½¨Í¼
-	        for (int i = 0; i < m; i++) {
-	            int a, b;
-	            a = sc.nextInt();
-	            b = sc.nextInt();
-	            d[a][b] = d[b][a] = 1;
-	        }
+        // Floydç®—æ³•è®¡ç®—æœ€çŸ­è·¯å¾„
+        for (int k = 1; k <= n; k++) {
+            for (int i = 1; i <= n; i++) {
+                for (int j = 1; j <= n; j++) {
+                    d[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
+                }
+            }
+        }
 
-	        // FloydËã·¨¼ÆËã×î¶ÌÂ·¾¶
-	        for (int k = 1; k <= n; k++) {
-	            for (int i = 1; i <= n; i++) {
-	                for (int j = 1; j <= n; j++) {
-	                    d[i][j] = Math.min(d[i][j], d[i][k] + d[k][j]);
-	                }
-	            }
-	        }
+        // å¤„ç†æ¯ä¸ªæŸ¥è¯¢
+        double ans = 0;
+        for (int i = 0; i < Q; i++) {
+            int x = sc.nextInt();  // æŸ¥è¯¢èµ·ç‚¹
+            int y = sc.nextInt();  // æŸ¥è¯¢æ­¥æ•°é™åˆ¶
+            for (int j = 1; j <= n; j++) {
+                if (d[x][j] <= y) {  // å¦‚æœæœ€çŸ­è·¯å¾„ä¸è¶…è¿‡y
+                    ans = ans + 1;    // è¯¥èŠ‚ç‚¹å¯è¾¾
+                }
+            }
+        }
 
-	        // ´¦ÀíÃ¿¸ö²éÑ¯
-	        double ans = 0;
-	        for (int i = 0; i < Q; i++) {
-	            int x, y;
-	            x = sc.nextInt();
-	            y = sc.nextInt();
-	            for (int j = 1; j <= n; j++) {
-	                if (d[x][j] <= y) {
-	                    ans = ans + 1;
-	                }
-	            }
-	        }
-
-	        // Êä³öÆ½¾ù½á¹û£¬±£ÁôÁ½Î»Ğ¡Êı
-	        System.out.printf("%.2f", ans / Q);
-	    }
+        // è¾“å‡ºå¹³å‡ç»“æœï¼Œä¿ç•™ä¸¤ä½å°æ•°
+		System.out.printf("%.2f", ans / Q);
+	}
 
 }

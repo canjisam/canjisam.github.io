@@ -5,20 +5,20 @@ import java.util.*;
 
 public class t7 {
 
-	static final int[][][][] p = { { // 对于L
+	static final int[][][][] p = { { // 鍩虹L
 			{ { 0, 0 }, { 1, 0 }, { 2, 0 }, { 2, 1 } }, // 0
-			{ { 0, 0 }, { 0, 1 }, { 0, 2 }, { 1, 0 } }, // 正向90
+			{ { 0, 0 }, { 0, 1 }, { 0, 2 }, { 1, 0 } }, // 椤烘椂90
 			{ { 0, 0 }, { 0, 1 }, { 1, 1 }, { 2, 1 } }, // 180
-			{ { 0, 2 }, { 1, 0 }, { 1, 1 }, { 1, 2 } } // 反向90
-			}, { // 对于I
+			{ { 0, 2 }, { 1, 0 }, { 1, 1 }, { 1, 2 } } // 閫嗘椂90
+			}, { // 鍩虹I
 					{ { 0, 0 }, { 1, 0 }, { 2, 0 }, { 3, 0 } }, // 0
 					{ { 0, 0 }, { 0, 1 }, { 0, 2 }, { 0, 3 } } // 180
-			}, { // 对于T
+			}, { // 鍩虹T
 					{ { 0, 0 }, { 0, 1 }, { 0, 2 }, { 1, 1 } }, // 0
-					{ { 0, 0 }, { 1, 0 }, { 2, 0 }, { 1, -1 } }, // 正向90
+					{ { 0, 0 }, { 1, 0 }, { 2, 0 }, { 1, -1 } }, // 椤烘椂90
 					{ { 0, 1 }, { 1, 0 }, { 1, 1 }, { 1, 2 } }, // 180
-					{ { 0, 0 }, { 1, 0 }, { 2, 0 }, { 1, 1 } } // 反向90
-			}, { // 对于S
+					{ { 0, 0 }, { 1, 0 }, { 2, 0 }, { 1, 1 } } // 閫嗘椂90
+			}, { // 鍩虹S
 					{ { 0, 0 }, { 0, 1 }, { -1, 1 }, { -1, 2 } }, // 0
 					{ { 0, 0 }, { 1, 0 }, { 1, 1 }, { 2, 1 } } // 90
 			}
@@ -48,107 +48,110 @@ public class t7 {
 			}
 
 			ok = false;
-			dfs(0);
-			out.println(ok ? "Yes" : "No");
+			for (int i = 1; i <= n && !ok; i++) {
+				for (int j = 1; j <= n && !ok; j++) {
+					if (g[i][j] == 0) {
+						for (int k = 0; k < p.length && !ok; k++) {
+							for (int l = 0; l < p[k].length && !ok; l++) {
+								if (check(i, j, k, l)) {
+									ok = true;
+								}
+							}
+						}
+					}
+				}
+			}
+			if (ok) {
+				System.out.println("YES");
+			} else {
+				System.out.println("NO");
+			}
 		}
 		sc.close();
-		out.flush();
 	}
 
-	public static boolean solve() {
-		ok = false;
-		dfs(0);
-		return ok;
-	}
-
-	public static boolean judge(int i, int j, int x, int y) {
-		for (int[] pos : p[i][j]) {
-			int tx = x + pos[0], ty = y + pos[1];
-			if (!(tx >= 1 && tx <= n && ty >= 1 && ty <= n) || g[tx][ty] != 1)
+	public static boolean check(int x, int y, int k, int l) {
+		for (int i = 0; i < 4; i++) {
+			int nx = x + p[k][l][i][0];
+			int ny = y + p[k][l][i][1];
+			if (nx < 1 || nx > n || ny < 1 || ny > n || g[nx][ny] == 1) {
 				return false;
+			}
 		}
 		return true;
 	}
 
-	static void fill(int i, int j, int x, int y, int target) {
-		for (int[] pos : p[i][j]) {
-			g[x + pos[0]][y + pos[1]] = target;
-		}
-	}
-
-	static void dfs(int i) {
-		// TODO Auto-generated method stub
-		if (ok)
-			return;
-		if (i == 4)
-			ok = true;
-		else {
-			for (int j = 0; j < p[i].length; j++) {
-				if (ok)
-					return;
-				for (int x = 1; x <= n; x++) {
-					for (int y = 1; y <= n; y++) {
-						if (!judge(i, j, x, y))
-							continue;
-						fill(i, j, x, y, 2);
-						dfs(i + 1);
-						fill(i, j, x, y, 1);
+	public static void fastreadversion() {
+		FastReader fr = new FastReader();
+		int t = fr.nextInt();
+		while ((t--) > 0) {
+			n = fr.nextInt();
+			for (int i = 1; i <= n; i++) {
+				for (int j = 1; j <= n; j++) {
+					g[i][j] = fr.nextInt();
+				}
+			}
+			ok = false;
+			for (int i = 1; i <= n && !ok; i++) {
+				for (int j = 1; j <= n && !ok; j++) {
+					if (g[i][j] == 0) {
+						for (int k = 0; k < p.length && !ok; k++) {
+							for (int l = 0; l < p[k].length && !ok; l++) {
+								if (check(i, j, k, l)) {
+									ok = true;
+								}
+							}
+						}
 					}
 				}
 			}
-		}
-	}
-
-	static FR in = new FR();
-	static PrintWriter out = new PrintWriter(System.out);
-
-	public static void fastreadversion() {
-		int t = in.nextInt();
-		while ((t--) > 0) {
-			n = in.nextInt();
-			for (int i = 1; i <= n; i++) {
-				for (int j = 1; j <= n; j++) {
-					g[i][j] = in.nextInt();
-				}
+			if (ok) {
+				System.out.println("YES");
+			} else {
+				System.out.println("NO");
 			}
-			out.println(solve() ? "Yes" : "No");
 		}
-		out.flush();
 	}
 
-	static class FR {
-		static BufferedReader bufferedReader;
-		static StringTokenizer stringTokenizer;
+	static class FastReader {
+		BufferedReader br;
+		StringTokenizer st;
 
-		FR() {
-			bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+		public FastReader() {
+			br = new BufferedReader(new InputStreamReader(System.in));
 		}
 
 		String next() {
-			String string;
-			while (stringTokenizer == null || !stringTokenizer.hasMoreElements()) {
+			while (st == null || !st.hasMoreElements()) {
 				try {
-					string = bufferedReader.readLine();
+					st = new StringTokenizer(br.readLine());
 				} catch (IOException e) {
-					throw new RuntimeException(e);
-					// TODO: handle exception
+					e.printStackTrace();
 				}
-				stringTokenizer = new StringTokenizer(string);
 			}
-			return stringTokenizer.nextToken();
+			return st.nextToken();
 		}
 
 		int nextInt() {
 			return Integer.parseInt(next());
 		}
 
-		double nextDouble() {
-			return Double.parseDouble(next());
-		}
-
 		long nextLong() {
 			return Long.parseLong(next());
 		}
 
+		double nextDouble() {
+			return Double.parseDouble(next());
+		}
+
+		String nextLine() {
+			String str = "";
+			try {
+				str = br.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return str;
+		}
 	}
 }

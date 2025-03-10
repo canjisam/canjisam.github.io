@@ -7,20 +7,20 @@ import java.util.Scanner;
 
 public class t8 {
     static class bitversion {
-        // ¶¨ÒåÄ£Êı£¬ÓÃÓÚ·ÀÖ¹ÕûÊıÒç³ö
+        // å®šä¹‰æ¨¡æ•°ï¼Œç”¨äºé˜²æ­¢æ•´æ•°æº¢å‡º
         static int moda = (int) 1e9 + 7;
-        // µãµÄÊıÁ¿
+        // ç‚¹çš„æ•°é‡
         static int n;
-        // ´æ´¢ËùÓĞµãµÄÊı×é
+        // å­˜å‚¨æ‰€æœ‰ç‚¹çš„æ•°ç»„
         static Point[] arr;
-        // Èı¸öÊ÷×´Êı×é£¬·Ö±ğ¶ÔÓ¦ÑÕÉ«0, 1, 2µÄy×ø±ê¼ÆÊı
+        // ä¸‰ä¸ªæ ‘çŠ¶æ•°ç»„ï¼Œåˆ†åˆ«å¯¹åº”é¢œè‰²0, 1, 2çš„yåæ ‡è®¡æ•°
         static int[] btr = new int[100005], btg = new int[100005], btb = new int[100005];
-        // ×îÖÕ´ğ°¸
+        // æœ€ç»ˆç­”æ¡ˆ
         static int ans = 0;
-        // ÊäÈë¹¤¾ß
+        // è¾“å…¥å·¥å…·
         static Scanner sc = new Scanner(System.in);
 
-        // ¶¨ÒåµãÀà£¬°üº¬x, y×ø±êºÍÑÕÉ«c
+        // å®šä¹‰ç‚¹ç±»ï¼ŒåŒ…å«x, yåæ ‡å’Œé¢œè‰²c
         static class Point {
             int a, b, c;
 
@@ -32,16 +32,16 @@ public class t8 {
         }
 
         public static void solve() {
-            // ¶ÁÈ¡µãµÄÊıÁ¿
+            // è¯»å–ç‚¹çš„æ•°é‡
             n = sc.nextInt();
-            // ³õÊ¼»¯µãÊı×é
+            // åˆå§‹åŒ–ç‚¹æ•°ç»„
             arr = new Point[n];
             for (int i = 0; i < n; i++) {
-                // ¶ÁÈ¡Ã¿¸öµãµÄx, y×ø±êºÍÑÕÉ«
+                // è¯»å–æ¯ä¸ªç‚¹çš„x, yåæ ‡å’Œé¢œè‰²
                 int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
                 arr[i] = new Point(a, b, c);
             }
-            // °´ÕÕx, y, cÅÅĞòµã
+            // æŒ‰ç…§x, y, cæ’åºç‚¹
             Arrays.sort(arr, (o1, o2) -> {
                 if (o1.a != o2.a) {
                     return o1.a - o2.a;
@@ -50,15 +50,15 @@ public class t8 {
                 } else
                     return o1.c - o2.c;
             });
-            // ±éÀúÃ¿¸öµã
+            // éå†æ¯ä¸ªç‚¹
             for (int i = 0; i < n; i++) {
-                // Èç¹ûµ±Ç°µãµÄx×ø±êÓëÇ°Ò»¸öµã²»Í¬£¬Ôò¸üĞÂÇ°Ò»¸öÏàÍ¬x×ø±êµÄµãµÄĞÅÏ¢µ½Ê÷×´Êı×éÖĞ
+                // å¦‚æœå½“å‰ç‚¹çš„xåæ ‡ä¸å‰ä¸€ä¸ªç‚¹ä¸åŒï¼Œåˆ™æ›´æ–°å‰ä¸€ä¸ªç›¸åŒxåæ ‡çš„ç‚¹çš„ä¿¡æ¯åˆ°æ ‘çŠ¶æ•°ç»„ä¸­
                 if (i > 0 && arr[i].a != arr[i - 1].a) {
                     int la = arr[i - 1].a;
                     for (int j = i - 1; j >= 0; j--) {
                         if (arr[j].a != la)
                             break;
-                        // ¸ù¾İÑÕÉ«½«y×ø±ê²åÈë¶ÔÓ¦µÄÊ÷×´Êı×é
+                        // æ ¹æ®é¢œè‰²å°†yåæ ‡æ’å…¥å¯¹åº”çš„æ ‘çŠ¶æ•°ç»„
                         if (arr[j].c == 0)
                             bta(btr, arr[j].b, 1);
                         else if (arr[j].c == 1)
@@ -68,7 +68,7 @@ public class t8 {
                     }
                 }
                 int now = 0;
-                // ¼ÆËãµ±Ç°µãµÄÓĞĞ§Åä¶ÔÊıÁ¿
+                // è®¡ç®—å½“å‰ç‚¹çš„æœ‰æ•ˆé…å¯¹æ•°é‡
                 if (arr[i].c == 0) {
                     now += btq(btg, 100000) - btq(btg, arr[i].b);
                     now += btq(btb, 100000) - btq(btb, arr[i].b);
@@ -79,26 +79,26 @@ public class t8 {
                     now += btq(btr, 100000) - btq(btr, arr[i].b);
                     now += btq(btg, 100000) - btq(btg, arr[i].b);
                 }
-                // ¸üĞÂ×îÖÕ´ğ°¸£¬²¢È¡Ä£
+                // æ›´æ–°æœ€ç»ˆç­”æ¡ˆï¼Œå¹¶å–æ¨¡
                 ans = (ans + now) % moda;
             }
-            // Êä³ö½á¹û
+            // è¾“å‡ºç»“æœ
             System.out.println(ans);
         }
 
-        // ·µ»Ø×îµÍÎ»µÄ1µÄÎ»ÖÃ
+        // è¿”å›æœ€ä½ä½çš„1çš„ä½ç½®
         static int lowbit(int a) {
             return a & (-a);
         }
 
-        // ÔÚÊ÷×´Êı×ébtÖĞÎ»ÖÃa´¦Ôö¼ÓÖµb
+        // åœ¨æ ‘çŠ¶æ•°ç»„btä¸­ä½ç½®aå¤„å¢åŠ å€¼b
         static void bta(int[] bt, int a, int b) {
             for (int i = a; i <= 100000; i += lowbit(i)) {
                 bt[i] += b;
             }
         }
 
-        // ²éÑ¯Ê÷×´Êı×ébtÖĞ´Ó1µ½aµÄºÍ
+        // æŸ¥è¯¢æ ‘çŠ¶æ•°ç»„btä¸­ä»1åˆ°açš„å’Œ
         static int btq(int[] bt, int a) {
             int ret = 0;
             for (int i = a; i >= 1; i -= lowbit(i)) {
@@ -150,34 +150,34 @@ public class t8 {
             int n = sc.nextInt();
             List<int[]> arr = new ArrayList<>();
 
-            // ¶ÁÈëËùÓĞµÄ¾ØĞÎ
+            // è¯»å…¥æ‰€æœ‰çš„çŸ©å½¢
             for (int i = 0; i < n; i++) {
-                int l = sc.nextInt(); // x×ø±ê
-                int w = sc.nextInt(); // y×ø±ê
-                int c = sc.nextInt(); // ÑÕÉ«
+                int l = sc.nextInt(); // xåæ ‡
+                int w = sc.nextInt(); // yåæ ‡
+                int c = sc.nextInt(); // é¢œè‰²
                 arr.add(new int[]{l, w, c});
             }
 
-            // ¶Ô¾ØĞÎ½øĞĞÅÅĞò£¬ÏÈ°´xÉıĞò£¬È»ºó°´yÉıĞò
+            // å¯¹çŸ©å½¢è¿›è¡Œæ’åºï¼Œå…ˆæŒ‰xå‡åºï¼Œç„¶åæŒ‰yå‡åº
             arr.sort((o1, o2) -> {
                 if (o1[0] != o2[0]) return Integer.compare(o1[0], o2[0]);
                 else return Integer.compare(o1[1], o2[1]);
             });
 
-            // ½¨Á¢ÈıÖÖÑÕÉ«¶ÔÓ¦µÄÊ÷×´Êı×é
+            // å»ºç«‹ä¸‰ç§é¢œè‰²å¯¹åº”çš„æ ‘çŠ¶æ•°ç»„
             FenwickTree[] tree = new FenwickTree[3];
             for (int i = 0; i < 3; i++) tree[i] = new FenwickTree(maxn);
 
-            // Ã¶¾ÙÅÅĞòºÃµÄarr
+            // æšä¸¾æ’åºå¥½çš„arr
             for (int[] a : arr) {
                 int l = a[0];
                 int w = a[1];
                 int c = a[2];
                 for (int i = 0; i < 3; i++) {
-                    if (c == i) continue; // ÏàÍ¬ÑÕÉ«±»ÅÅ³ıµô
-                    ans = (ans + tree[i].rangeSum(w + 1, maxn)) % mod; // ÀÛ¼Ó´ğ°¸
+                    if (c == i) continue; // ç›¸åŒé¢œè‰²è¢«æ’é™¤æ‰
+                    ans = (ans + tree[i].rangeSum(w + 1, maxn)) % mod; // ç´¯åŠ ç­”æ¡ˆ
                 }
-                tree[c].add(w, 1); // ¸üĞÂÊ÷×´Êı×é
+                tree[c].add(w, 1); // æ›´æ–°æ ‘çŠ¶æ•°ç»„
             }
             System.out.println(ans);
         }
@@ -192,7 +192,7 @@ public class t8 {
                 tree = new int[4 * n];
             }
 
-            // ¸üĞÂÊ÷×´Êı×é£¬ÔÚÎ»ÖÃi´¦Ôö¼ÓÖµval
+            // æ›´æ–°æ ‘çŠ¶æ•°ç»„ï¼Œåœ¨ä½ç½®iå¤„å¢åŠ å€¼val
             void update(int idx, int val, int node, int start, int end) {
                 if (start == end) {
                     tree[node] += val;
@@ -207,7 +207,7 @@ public class t8 {
                 }
             }
 
-            // ²éÑ¯Ê÷×´Êı×éÖĞ´Ólµ½rµÄºÍ
+            // æŸ¥è¯¢æ ‘çŠ¶æ•°ç»„ä¸­ä»låˆ°rçš„å’Œ
             int query(int l, int r, int node, int start, int end) {
                 if (r < start || end < l) {
                     return 0;
@@ -221,12 +221,12 @@ public class t8 {
                 return leftQuery + rightQuery;
             }
 
-            // ¸üĞÂ½Ó¿Ú
+            // æ›´æ–°æ¥å£
             void update(int idx, int val) {
                 update(idx, val, 1, 0, n - 1);
             }
 
-            // ²éÑ¯½Ó¿Ú
+            // æŸ¥è¯¢æ¥å£
             int query(int l, int r) {
                 return query(l, r, 1, 0, n - 1);
             }
@@ -238,42 +238,42 @@ public class t8 {
 
         public static void solve() {
             Scanner sc = new Scanner(System.in);
-            // ¶ÁÈ¡µãµÄÊıÁ¿
+            // è¯»å–ç‚¹çš„æ•°é‡
             int n = sc.nextInt();
             List<int[]> arr = new ArrayList<>();
 
-            // ¶ÁÈëËùÓĞµÄ¾ØĞÎ
+            // è¯»å…¥æ‰€æœ‰çš„çŸ©å½¢
             for (int i = 0; i < n; i++) {
-                int l = sc.nextInt(); // x×ø±ê
-                int w = sc.nextInt(); // y×ø±ê
-                int c = sc.nextInt(); // ÑÕÉ«
+                int l = sc.nextInt(); // xåæ ‡
+                int w = sc.nextInt(); // yåæ ‡
+                int c = sc.nextInt(); // é¢œè‰²
                 arr.add(new int[]{l, w, c});
             }
 
-            // ¶Ô¾ØĞÎ½øĞĞÅÅĞò£¬ÏÈ°´xÉıĞò£¬È»ºó°´yÉıĞò
+            // å¯¹çŸ©å½¢è¿›è¡Œæ’åºï¼Œå…ˆæŒ‰xå‡åºï¼Œç„¶åæŒ‰yå‡åº
             arr.sort((o1, o2) -> {
                 if (o1[0] != o2[0]) return Integer.compare(o1[0], o2[0]);
                 else return Integer.compare(o1[1], o2[1]);
             });
 
-            // ½¨Á¢ÈıÖÖÑÕÉ«¶ÔÓ¦µÄÏß¶ÎÊ÷
+            // å»ºç«‹ä¸‰ç§é¢œè‰²å¯¹åº”çš„çº¿æ®µæ ‘
             SegmentTree[] tree = new SegmentTree[3];
             for (int i = 0; i < 3; i++) tree[i] = new SegmentTree(maxn);
 
-            // Ã¶¾ÙÅÅĞòºÃµÄarr
+            // æšä¸¾æ’åºå¥½çš„arr
             for (int[] a : arr) {
-                int l = a[0]; // x×ø±ê
-                int w = a[1]; // y×ø±ê
-                int c = a[2]; // ÑÕÉ«
+                int l = a[0]; // xåæ ‡
+                int w = a[1]; // yåæ ‡
+                int c = a[2]; // é¢œè‰²
                 for (int i = 0; i < 3; i++) {
-                    if (c == i) continue; // ÏàÍ¬ÑÕÉ«±»ÅÅ³ıµô
-                    // ÀÛ¼Ó´ğ°¸£¬¼ÆËãµ±Ç°µãµÄÓĞĞ§Åä¶ÔÊıÁ¿
+                    if (c == i) continue; // ç›¸åŒé¢œè‰²è¢«æ’é™¤æ‰
+                    // ç´¯åŠ ç­”æ¡ˆï¼Œè®¡ç®—å½“å‰ç‚¹çš„æœ‰æ•ˆé…å¯¹æ•°é‡
                     ans = (ans + tree[i].query(w + 1, maxn - 1)) % mod;
                 }
-                // ¸üĞÂÏß¶ÎÊ÷
+                // æ›´æ–°çº¿æ®µæ ‘
                 tree[c].update(w, 1);
             }
-            // Êä³ö½á¹û
+            // è¾“å‡ºç»“æœ
             System.out.println(ans);
         }
     }
