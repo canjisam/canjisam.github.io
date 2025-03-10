@@ -31,24 +31,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 async function generateSummary(title, content) {
-  // 讯飞开放平台配置
+  // 讯飞星火API配置
   const API_KEY = process.env.XF_API_KEY;
   const API_SECRET = process.env.XF_API_SECRET;
-  const API_URL = 'https://spark-api.xf-yun.com/v2.1/chat';
+  const API_URL = 'https://spark-api.xf-yun.com/v3.1/chat';
 
   // 生成请求参数
   const date = new Date().toUTCString();
+  const host = 'spark-api.xf-yun.com';
+  const path = '/v3.1/chat';
   const requestId = crypto.randomUUID();
 
   // 生成签名
-  const signature = await generateSignature(API_KEY, API_SECRET, date);
+  const signature = await generateSignature(API_KEY, API_SECRET, host, path, date);
 
   // 构建请求头
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `api_key="${API_KEY}", algorithm="hmac-sha256", headers="host date request-line", signature="${signature}"`,
     'Date': date,
-    'Host': 'spark-api.xf-yun.com'
+    'Host': host
   };
 
   // 构建请求体
@@ -59,9 +61,9 @@ async function generateSummary(title, content) {
     },
     parameter: {
       chat: {
-        domain: 'general',
-        temperature: 0.5,
-        max_tokens: 1024
+        domain: 'generalv3',
+        temperature: 0.7,
+        max_tokens: 2048
       }
     },
     payload: {
@@ -69,7 +71,7 @@ async function generateSummary(title, content) {
         text: [
           {
             role: 'user',
-            content: `请为这篇文章生成一个简短的摘要，标题是：${title}\n内容是：${content}`
+            content: `请为这篇文章生成一个简短的摘要，要求：\n1. 提取3-5个主要观点\n2. 每个观点用简洁的语言表达\n3. 确保摘要准确反映文章核心内容\n\n文章标题：${title}\n文章内容：${content}`
           }
         ]
       }
@@ -89,6 +91,10 @@ async function generateSummary(title, content) {
 
     const result = await response.json();
     
+    if (result.header.code !== 0) {
+      throw new Error(`API返回错误: ${result.header.message}`);
+    }
+
     // 解析API返回的摘要内容
     const summary = {
       mainPoints: parseAISummary(result.payload.choices.text[0].content)
@@ -102,8 +108,8 @@ async function generateSummary(title, content) {
 }
 
 // 生成API签名
-async function generateSignature(apiKey, apiSecret, date) {
-  const signatureOrigin = `host: spark-api.xf-yun.com\ndate: ${date}\nPOST /v2.1/chat HTTP/1.1`;
+async function generateSignature(apiKey, apiSecret, host, path, date) {
+  const signatureOrigin = `host: ${host}\ndate: ${date}\nPOST ${path} HTTP/1.1`;
   
   const encoder = new TextEncoder();
   const data = encoder.encode(signatureOrigin);
@@ -128,15 +134,14 @@ async function generateSignature(apiKey, apiSecret, date) {
 
 // 解析AI返回的摘要内容
 function parseAISummary(content) {
-  // 这里可以根据实际API返回的格式进行解析
-  // 示例中假设返回的是用换行符分隔的多个要点
-  return content.split('\n').filter(point => point.trim());
+  // 将返回的文本按数字序号或换行符分割
+  const points = content.split(/\d+\.\s*|\n+/).filter(point => point.trim());
+  return points;
 }
 
 function updateSummaryContent(summary) {
   const aiSummaryContent = document.querySelector('.ai-summary-content');
   const summaryHtml = `
-    <p class="ai-summary-text">这是一篇关于本主题的文章，主要内容包括：</p>
     <div class="ai-summary-points">
       <ul>
         ${summary.mainPoints.map(point => `<li>${point}</li>`).join('')}
