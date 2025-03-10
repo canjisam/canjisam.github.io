@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>从零入门 AI for Science（AI+药物) 笔记 | CanJisam的博客</title><meta name="author" content="CanJisam"><meta name="copyright" content="CanJisam"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="@[TOC](从零入门 AI for Science AI+药物笔记  ) &#x1F496;使用平台我的Notebook · 魔搭社区 https:&#x2F;&#x2F;modelscope.cn&#x2F;my&#x2F;mynotebook&#x2F;preset .  魔搭高峰期打不开Task3又换回飞桨了 吧torch 架构换成了 飞桨的paddle   飞桨AI Studio星河社区-人工智能学习与实训社区https:&#x2F;&#x2F;aistu">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>从零入门 AI for Science（AI+药物) 笔记 | CanJisam的博客</title><meta name="author" content="CanJisam"><meta name="copyright" content="CanJisam"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x1F496;使用平台我的Notebook · 魔搭社区 https:&#x2F;&#x2F;modelscope.cn&#x2F;my&#x2F;mynotebook&#x2F;preset .  魔搭高峰期打不开Task3又换回飞桨了 吧torch 架构换成了 飞桨的paddle   飞桨AI Studio星河社区-人工智能学习与实训社区https:&#x2F;&#x2F;aistudio.baidu.com&#x2F;projectdetail&#x2F;8191835?co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零入门 AI for Science（AI+药物) 笔记">
 <meta property="og:url" content="https://canjisam.github.io/2025/03/10/%E4%BB%8E%E9%9B%B6%E5%85%A5%E9%97%A8-AI-for-Science%EF%BC%88AI-%E8%8D%AF%E7%89%A9-%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="CanJisam的博客">
-<meta property="og:description" content="@[TOC](从零入门 AI for Science AI+药物笔记  ) &#x1F496;使用平台我的Notebook · 魔搭社区 https:&#x2F;&#x2F;modelscope.cn&#x2F;my&#x2F;mynotebook&#x2F;preset .  魔搭高峰期打不开Task3又换回飞桨了 吧torch 架构换成了 飞桨的paddle   飞桨AI Studio星河社区-人工智能学习与实训社区https:&#x2F;&#x2F;aistu">
+<meta property="og:description" content="&#x1F496;使用平台我的Notebook · 魔搭社区 https:&#x2F;&#x2F;modelscope.cn&#x2F;my&#x2F;mynotebook&#x2F;preset .  魔搭高峰期打不开Task3又换回飞桨了 吧torch 架构换成了 飞桨的paddle   飞桨AI Studio星河社区-人工智能学习与实训社区https:&#x2F;&#x2F;aistudio.baidu.com&#x2F;projectdetail&#x2F;8191835?co">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://canjisam.github.io/img/butterfly-icon.png">
 <meta property="article:published_time" content="2025-03-10T01:51:02.000Z">
-<meta property="article:modified_time" content="2025-03-10T02:21:50.609Z">
+<meta property="article:modified_time" content="2025-03-10T02:50:03.035Z">
 <meta property="article:author" content="CanJisam">
 <meta property="article:tag" content="CanJisam, 前端, 后端, 架构, 运维, 数据库, 算法, 面试, 博客">
 <meta name="twitter:card" content="summary">
@@ -18,7 +18,7 @@
   "url": "https://canjisam.github.io/2025/03/10/%E4%BB%8E%E9%9B%B6%E5%85%A5%E9%97%A8-AI-for-Science%EF%BC%88AI-%E8%8D%AF%E7%89%A9-%E7%AC%94%E8%AE%B0/",
   "image": "https://canjisam.github.io/img/butterfly-icon.png",
   "datePublished": "2025-03-10T01:51:02.000Z",
-  "dateModified": "2025-03-10T02:21:50.609Z",
+  "dateModified": "2025-03-10T02:50:03.035Z",
   "author": [
     {
       "@type": "Person",
@@ -159,27 +159,26 @@
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">CanJisam的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">从零入门 AI for Science（AI+药物) 笔记</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">从零入门 AI for Science（AI+药物) 笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-03-10T01:51:02.000Z" title="Created 2025-03-10 09:51:02">2025-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-03-10T02:21:50.609Z" title="Updated 2025-03-10 10:21:50">2025-03-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>@[TOC](从零入门 AI for Science AI+药物笔记  )</p>
-<h1 id="x1F496-使用平台"><a href="#x1F496-使用平台" class="headerlink" title="&#x1F496;使用平台"></a>&#x1F496;使用平台</h1><p><a target="_blank" rel="noopener" href="https://modelscope.cn/my/mynotebook/preset">我的Notebook · 魔搭社区 https://modelscope.cn/my/mynotebook/preset </a>.</p>
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">CanJisam的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">从零入门 AI for Science（AI+药物) 笔记</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">从零入门 AI for Science（AI+药物) 笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-03-10T01:51:02.000Z" title="Created 2025-03-10 09:51:02">2025-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-03-10T02:50:03.035Z" title="Updated 2025-03-10 10:50:03">2025-03-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="x1F496-使用平台"><a href="#x1F496-使用平台" class="headerlink" title="&#x1F496;使用平台"></a>&#x1F496;使用平台</h1><p><a target="_blank" rel="noopener" href="https://modelscope.cn/my/mynotebook/preset">我的Notebook · 魔搭社区 https://modelscope.cn/my/mynotebook/preset </a>.</p>
 <blockquote>
 <p>魔搭高峰期打不开Task3又换回飞桨了 吧torch 架构换成了 飞桨的paddle </p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/projectdetail/8191835?contributionType=1">飞桨AI Studio星河社区-人工智能学习与实训社区<br>https://aistudio.baidu.com/projectdetail/8191835?contributionType=1</a></p>
 <h2 id="x1F4CA-主要操作"><a href="#x1F4CA-主要操作" class="headerlink" title="&#x1F4CA;主要操作"></a>&#x1F4CA;主要操作</h2><ol>
-<li><p>运行实例，如果有时长尽量选择方式二（<strong>以下操作基于方式二的实例实现</strong>）<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/92e7fdf7158644d28c6c0e3b62aff0b9.png#pic_center">https://i-blog.csdnimg.cn/direct/92e7fdf7158644d28c6c0e3b62aff0b9.png#pic_center</a> &#x3D;400x)</p>
+<li><p>运行实例，如果有时长尽量选择方式二（<strong>以下操作基于方式二的实例实现</strong>）<br><img src="https://i-blog.csdnimg.cn/direct/92e7fdf7158644d28c6c0e3b62aff0b9.png" alt="在这里插入图片描述"></p>
 </li>
 <li><p>创建文件夹，并重命名为  <strong>2.3siRNA</strong> </p>
 </li>
-<li><p>上传两个文件![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/41268aec0e374679b7216b239d101ff4.png">https://i-blog.csdnimg.cn/direct/41268aec0e374679b7216b239d101ff4.png</a> &#x3D;200x)<br>到文件夹， 这里面的第三个按钮是上传![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/fc198bfaeb75475b9cbac58e5cf1fc7e.png">https://i-blog.csdnimg.cn/direct/fc198bfaeb75475b9cbac58e5cf1fc7e.png</a> &#x3D;200x)</p>
+<li><p>上传两个文件<img src="https://i-blog.csdnimg.cn/direct/41268aec0e374679b7216b239d101ff4.png" alt="在这里插入图片描述"><br>到文件夹， 这里面的第三个按钮是上传<img src="https://i-blog.csdnimg.cn/direct/fc198bfaeb75475b9cbac58e5cf1fc7e.png" alt="在这里插入图片描述"></p>
 </li>
-<li><p>在当前文件夹打开终端（如图示意打开终端）并输入解压命令<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/086901afd6a349a5bfb06ab4536adf46.png#pic_center">https://i-blog.csdnimg.cn/direct/086901afd6a349a5bfb06ab4536adf46.png#pic_center</a> &#x3D;800x )</p>
+<li><p>在当前文件夹打开终端（如图示意打开终端）并输入解压命令<br><img src="https://i-blog.csdnimg.cn/direct/086901afd6a349a5bfb06ab4536adf46.png" alt="在这里插入图片描述"></p>
 </li>
 </ol>
 <p>注意：如果你的压缩包名字不是这个请将“siRNA_0715.zip” 换成你的压缩文件的名字“xxx.zip”(xxx为文件名)<br>（方便复制）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip siRNA_0715.zip </span><br></pre></td></tr></table></figure>
 <pre><code>到这里准备工作可以了，如果解压出问题了，可以重新上传一下，然后重复解压的操作
 </code></pre>
-<h3 id="x1F4A1-总览"><a href="#x1F4A1-总览" class="headerlink" title="&#x1F4A1;总览"></a>&#x1F4A1;总览</h3><p>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/ec1ffa1535df433d9866dae1ce51808e.png#pic_center">https://i-blog.csdnimg.cn/direct/ec1ffa1535df433d9866dae1ce51808e.png#pic_center</a> &#x3D;800x)</p>
+<h3 id="x1F4A1-总览"><a href="#x1F4A1-总览" class="headerlink" title="&#x1F4A1;总览"></a>&#x1F4A1;总览</h3><p><img src="https://i-blog.csdnimg.cn/direct/ec1ffa1535df433d9866dae1ce51808e.png" alt="在这里插入图片描述"></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_23311271/article/details/140357529"> 详细可以参考这篇 </a></p>
 <h1 id="x1F496-参赛平台"><a href="#x1F496-参赛平台" class="headerlink" title="&#x1F496;参赛平台"></a>&#x1F496;参赛平台</h1><p><a target="_blank" rel="noopener" href="http://competition.sais.com.cn/competitionDetail/532230/format"> 上海科学智能研究院 </a></p>
 <h1 id="x1F496-Task-1-跑通基线"><a href="#x1F496-Task-1-跑通基线" class="headerlink" title="&#x1F496;Task 1 跑通基线"></a>&#x1F496;Task 1 跑通基线</h1><blockquote>
@@ -187,27 +186,27 @@
 </blockquote>
 <ol>
 <li>运行笔记本<blockquote>
-<p>2.3siRNA&#x2F;task3.2_siRNA.ipynb<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/eb0ba47957fd4bf2aad2d33e633b2b16.png#pic_center">https://i-blog.csdnimg.cn/direct/eb0ba47957fd4bf2aad2d33e633b2b16.png#pic_center</a> &#x3D;600x)<br>就是这个橙不溜秋的书签，双击运行</p>
+<p>2.3siRNA&#x2F;task3.2_siRNA.ipynb<br><img src="https://i-blog.csdnimg.cn/direct/eb0ba47957fd4bf2aad2d33e633b2b16.png" alt="在这里插入图片描述"><br>就是这个橙不溜秋的书签，双击运行</p>
 </blockquote>
 </li>
-<li>运行笔记本中的所有代码<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/ee4bb5641c0b436faffe246b30265603.png#pic_center">https://i-blog.csdnimg.cn/direct/ee4bb5641c0b436faffe246b30265603.png#pic_center</a> &#x3D;800x)</li>
-<li>等待结果出来<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/21c0df2a98f545b29c1d63ead8a5875f.png#pic_center">https://i-blog.csdnimg.cn/direct/21c0df2a98f545b29c1d63ead8a5875f.png#pic_center</a> &#x3D;800x)<br>可以看到多了一个文件夹和文件<blockquote>
+<li>运行笔记本中的所有代码<br><img src="https://i-blog.csdnimg.cn/direct/ee4bb5641c0b436faffe246b30265603.png" alt="在这里插入图片描述"></li>
+<li>等待结果出来<br><img src="https://i-blog.csdnimg.cn/direct/21c0df2a98f545b29c1d63ead8a5875f.png" alt="在这里插入图片描述"><br>可以看到多了一个文件夹和文件<blockquote>
 <p>右键下载<strong>result&#x2F;submission.csv</strong>文件（<strong>download</strong>）</p>
 </blockquote>
 </li>
 </ol>
-<p>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/62f2ab77362b42bc9f367cc35b494ac8.png#pic_center">https://i-blog.csdnimg.cn/direct/62f2ab77362b42bc9f367cc35b494ac8.png#pic_center</a> &#x3D;800x)</p>
+<p><img src="https://i-blog.csdnimg.cn/direct/62f2ab77362b42bc9f367cc35b494ac8.png" alt="在这里插入图片描述"></p>
 <h4 id="x1F4E3-注意用完平台记得关闭实例（右上角）"><a href="#x1F4E3-注意用完平台记得关闭实例（右上角）" class="headerlink" title="&#x1F4E3;注意用完平台记得关闭实例（右上角）!!!"></a>&#x1F4E3;<font color="red" size = "4" >注意用完平台记得关闭实例（右上角）!!!</h4><h4 id="x1F4E3-注意用完平台记得关闭实例（右上角）-1"><a href="#x1F4E3-注意用完平台记得关闭实例（右上角）-1" class="headerlink" title="&#x1F4E3;注意用完平台记得关闭实例（右上角）!!!"></a>&#x1F4E3;<font color="red" size = "5" >注意用完平台记得关闭实例（右上角）!!!</h4><h4 id="x1F4E3-注意用完平台记得关闭实例（右上角）-2"><a href="#x1F4E3-注意用完平台记得关闭实例（右上角）-2" class="headerlink" title="&#x1F4E3;注意用完平台记得关闭实例（右上角）!!!"></a>&#x1F4E3;<font color="red" size = "6" >注意用完平台记得关闭实例（右上角）!!!</h4><p><img src="https://i-blog.csdnimg.cn/direct/00d5071a6a4f47ca960e424701f6ee83.png" alt="在这里插入图片描述"><br>tips: 算力充足可以当我没说,不关的话时长会一直使用</p>
 <h2 id="x1F4CA-提交文件获得第一个分数"><a href="#x1F4CA-提交文件获得第一个分数" class="headerlink" title="&#x1F4CA;提交文件获得第一个分数"></a>&#x1F4CA;提交文件获得第一个分数</h2><p>平台：<a target="_blank" rel="noopener" href="http://competition.sais.com.cn/competitionDetail/532230/format"> 上海科学智能研究院 </a></p>
 <blockquote>
 <p>注册和实名制略过</p>
 </blockquote>
-<h3 id="x1F4A1-点击提交结果和选中刚刚下载的文件等待上传"><a href="#x1F4A1-点击提交结果和选中刚刚下载的文件等待上传" class="headerlink" title="&#x1F4A1;点击提交结果和选中刚刚下载的文件等待上传"></a>&#x1F4A1;点击提交结果和选中刚刚下载的文件等待上传</h3><p>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/244591e9908741fea87392f2f0b922dd.png#pic_center">https://i-blog.csdnimg.cn/direct/244591e9908741fea87392f2f0b922dd.png#pic_center</a> &#x3D;800x)<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/31f7f73a377a4c258dcc762529a674ba.png#pic_center">https://i-blog.csdnimg.cn/direct/31f7f73a377a4c258dcc762529a674ba.png#pic_center</a> &#x3D;800x)</p>
-<h3 id="x1F4A1-点击我的成绩查看分数"><a href="#x1F4A1-点击我的成绩查看分数" class="headerlink" title="&#x1F4A1;点击我的成绩查看分数"></a>&#x1F4A1;点击我的成绩查看分数</h3><p>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/efc7fa8898c945a68fa54f42e5207e63.png#pic_center">https://i-blog.csdnimg.cn/direct/efc7fa8898c945a68fa54f42e5207e63.png#pic_center</a> &#x3D;800x)<br>其中task1中只选择了部分作为特征值，可以将全部的有效数据转换成特征值，必涨点。<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/add42f7cd5224b7bb3c98235ac281141.png#pic_center">https://i-blog.csdnimg.cn/direct/add42f7cd5224b7bb3c98235ac281141.png#pic_center</a> &#x3D;800x)</p>
+<h3 id="x1F4A1-点击提交结果和选中刚刚下载的文件等待上传"><a href="#x1F4A1-点击提交结果和选中刚刚下载的文件等待上传" class="headerlink" title="&#x1F4A1;点击提交结果和选中刚刚下载的文件等待上传"></a>&#x1F4A1;点击提交结果和选中刚刚下载的文件等待上传</h3><p><img src="https://i-blog.csdnimg.cn/direct/244591e9908741fea87392f2f0b922dd.png" alt="在这里插入图片描述"><br><img src="https://i-blog.csdnimg.cn/direct/31f7f73a377a4c258dcc762529a674ba.png" alt="在这里插入图片描述"></p>
+<h3 id="x1F4A1-点击我的成绩查看分数"><a href="#x1F4A1-点击我的成绩查看分数" class="headerlink" title="&#x1F4A1;点击我的成绩查看分数"></a>&#x1F4A1;点击我的成绩查看分数</h3><p><img src="https://i-blog.csdnimg.cn/direct/efc7fa8898c945a68fa54f42e5207e63.png" alt="在这里插入图片描述"><br>其中task1中只选择了部分作为特征值，可以将全部的有效数据转换成特征值，必涨点。<br><img src="https://i-blog.csdnimg.cn/direct/add42f7cd5224b7bb3c98235ac281141.png" alt="在这里插入图片描述"></p>
 <h3 id="x1F4A1-训练数据表头说明"><a href="#x1F4A1-训练数据表头说明" class="headerlink" title="&#x1F4A1;训练数据表头说明"></a>&#x1F4A1;训练数据表头说明</h3><blockquote>
 <p>数据来源于官网</p>
 </blockquote>
-<p>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/a59fef77e4c14944adf799a4de3ebb0c.png#pic_center">https://i-blog.csdnimg.cn/direct/a59fef77e4c14944adf799a4de3ebb0c.png#pic_center</a> &#x3D;800x)</p>
+<p><img src="https://i-blog.csdnimg.cn/direct/a59fef77e4c14944adf799a4de3ebb0c.png" alt="在这里插入图片描述"></p>
 <h4 id="x1F4E3-特征的分析总结"><a href="#x1F4E3-特征的分析总结" class="headerlink" title="&#x1F4E3;特征的分析总结"></a>&#x1F4E3;特征的分析总结</h4><table>
 <thead>
 <tr>
@@ -347,7 +346,7 @@
 </blockquote>
 <p>GRU通过<strong>引入门控机制来解决传统RNN存在的短期记忆和长期记忆不平衡的问题</strong>。它具有两个门控单元：<strong>重置门（reset gate）和更新门（update gate）</strong>。重置门控制了当前状态如何与先前状态相结合，而更新门控制了用于传递信息的新状态的计算。</p>
 <blockquote>
-<p>GRU单元结构如下图所示<br><img src="https://i-blog.csdnimg.cn/direct/e5feeae81be9445ca8263ebf1a870248.png#pic_center" alt="在这里插入图片描述"><br>GRU是Ilya Sutskever和Oriol Vinyals等人在2014年提出的一种改进的RNN单元，它旨在解决传统RNN在处理长序列时出现的梯度消失或梯度爆炸问题。</p>
+<p>GRU单元结构如下图所示<br><img src="https://i-blog.csdnimg.cn/direct/e5feeae81be9445ca8263ebf1a870248.png" alt="在这里插入图片描述"><br>GRU是Ilya Sutskever和Oriol Vinyals等人在2014年提出的一种改进的RNN单元，它旨在解决传统RNN在处理长序列时出现的梯度消失或梯度爆炸问题。</p>
 </blockquote>
 <p>GRU的核心思想是引入两个门控机制：<strong>更新门（Update Gate）和重置门（Reset Gate）。<strong>这两个门控机制允许模型</strong>动态地决定在每个时间步上应该保留多少之前的信息，以及应该更新多少当前的信息</strong>。这使得GRU能够更好地捕捉长距离依赖关系。</p>
 <h4 id="x1F4E3-GRU的数学模型"><a href="#x1F4E3-GRU的数学模型" class="headerlink" title="&#x1F4E3;GRU的数学模型"></a>&#x1F4E3;GRU的数学模型</h4><h5 id="x1F463-更新门（Update-Gate）"><a href="#x1F463-更新门（Update-Gate）" class="headerlink" title="&#x1F463;更新门（Update Gate）"></a>&#x1F463;更新门（Update Gate）</h5><p>更新门决定了在当前时间步应该保留多少之前的隐藏状态。更新门的公式如下：</p>
@@ -378,7 +377,7 @@
 <h4 id="x1F4E3-RNAi作用机制"><a href="#x1F4E3-RNAi作用机制" class="headerlink" title="&#x1F4E3;RNAi作用机制"></a>&#x1F4E3;RNAi作用机制</h4><blockquote>
 <p>文档内容里面的这个讲的很详细我啃臭cv一份</p>
 </blockquote>
-<p>生物体内，RNAi首先将较长的双链RNA加工和切割成 siRNA，通常在每条链的3’末端带有2个核苷酸突出端。负责这种加工的酶是一种RNase III样酶，称为Dicer。形成后，siRNA与一种称为RNA诱导的沉默复合物（RNAinduced silencing complex, RISC）的多蛋白组分复合物结合。在RISC复合物中，siRNA链被分离，具有更稳定的5′末端的链通常被整合到活性RISC复合物中。然后，反义单链siRNA组分引导并排列在靶mRNA上，并通过催化RISC蛋白（Argonaute family（Ago2））的作用，mRNA被切割，即对应基因被沉默，表达蛋白能力削弱。<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/87da9c44cd4a49e493ce7ccd5998c7c7.png#pic_center">https://i-blog.csdnimg.cn/direct/87da9c44cd4a49e493ce7ccd5998c7c7.png#pic_center</a> &#x3D;800x)<br>传统siRNA设计原则与知识<br>  siRNA的沉默效率与众多因素相关，例如siRNA的稳定性、修饰、转染方法等。一些经验的生物知识可用于特征构建和AI模型的设计。</p>
+<p>生物体内，RNAi首先将较长的双链RNA加工和切割成 siRNA，通常在每条链的3’末端带有2个核苷酸突出端。负责这种加工的酶是一种RNase III样酶，称为Dicer。形成后，siRNA与一种称为RNA诱导的沉默复合物（RNAinduced silencing complex, RISC）的多蛋白组分复合物结合。在RISC复合物中，siRNA链被分离，具有更稳定的5′末端的链通常被整合到活性RISC复合物中。然后，反义单链siRNA组分引导并排列在靶mRNA上，并通过催化RISC蛋白（Argonaute family（Ago2））的作用，mRNA被切割，即对应基因被沉默，表达蛋白能力削弱。<br><img src="https://i-blog.csdnimg.cn/direct/87da9c44cd4a49e493ce7ccd5998c7c7.png" alt="在这里插入图片描述"><br>传统siRNA设计原则与知识<br>  siRNA的沉默效率与众多因素相关，例如siRNA的稳定性、修饰、转染方法等。一些经验的生物知识可用于特征构建和AI模型的设计。</p>
 <p>在siRNA一般设计过程中有以下知识和原则：</p>
 <blockquote>
 <ol>
@@ -539,9 +538,9 @@
 </blockquote>
 <p>   发现输入的是这个x，x又是输入的序列</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> inputs,target <span class="keyword">in</span> train_loader:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;len(inputs):\n &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(inputs)))</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;inputs[0].shape:\n &#123;0&#125; &quot;</span>.<span class="built_in">format</span>(inputs[<span class="number">0</span>].shape))</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;intputs[0][0]:\n &#123;0&#125; &quot;</span>.<span class="built_in">format</span>(inputs[<span class="number">0</span>][<span class="number">0</span>]))</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;traget.shape:\n &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(target.shape))</span><br><span class="line">  <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/91e9abd4fcdb4caa81d99e2e2132da2f.png#pic_center">https://i-blog.csdnimg.cn/direct/91e9abd4fcdb4caa81d99e2e2132da2f.png#pic_center</a> &#x3D;600x)<br>在处理siRNA序列数据时，我们首先注意到输入数据inputs包含两个元素，每个元素的尺寸为64×25。<br>这里的64表示批量处理的大小，而25代表每个序列的长度。通过观察inputs[0][0]，我们可以了解到siRNA的反义链序列（siRNA_antisense_seq）在经过向量化处理后的表现。在这里，<strong>序列的前7位是非零值，这些非零值代表了序列编码中每个字符的唯一标识符。</strong></p>
+<p><img src="https://i-blog.csdnimg.cn/direct/91e9abd4fcdb4caa81d99e2e2132da2f.png" alt="在这里插入图片描述"><br>在处理siRNA序列数据时，我们首先注意到输入数据inputs包含两个元素，每个元素的尺寸为64×25。<br>这里的64表示批量处理的大小，而25代表每个序列的长度。通过观察inputs[0][0]，我们可以了解到siRNA的反义链序列（siRNA_antisense_seq）在经过向量化处理后的表现。在这里，<strong>序列的前7位是非零值，这些非零值代表了序列编码中每个字符的唯一标识符。</strong></p>
 <blockquote>
-<p>在这个模型的嵌入层初始化时我们做了这样一个操作，<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/965bd3ff86014a3986bcb223777759b1.png#pic_center">https://i-blog.csdnimg.cn/direct/965bd3ff86014a3986bcb223777759b1.png#pic_center</a>   &#x3D;600x)<br>其中<br><strong>vocab_size表示词汇表的大小<br>embed_dim表示嵌入向量的维度<br>padding_idx&#x3D;0表示对应的填充符号的索引。</strong></p>
+<p>在这个模型的嵌入层初始化时我们做了这样一个操作，<br><img src="https://i-blog.csdnimg.cn/direct/965bd3ff86014a3986bcb223777759b1.png" alt="在这里插入图片描述"><br>其中<br><strong>vocab_size表示词汇表的大小<br>embed_dim表示嵌入向量的维度<br>padding_idx&#x3D;0表示对应的填充符号的索引。</strong></p>
 </blockquote>
 <p>为了使RNN模型能够有效处理这些数据，需要保证每个输入样本的长度一致，在创建模型时采取了<strong>填充（padding）策略</strong>（上方引用）。<br><strong>如果某个序列编码后的长度小于最大长度，我们会在其后补零，以确保所有序列在输入到RNN模型时具有统一的长度</strong>。<br>这里把所有序列都被填充至25位，来满足模型的输入要求。</p>
 <h2 id="x1F4CA-如何为siRNA序列分配唯一标识符"><a href="#x1F4CA-如何为siRNA序列分配唯一标识符" class="headerlink" title="&#x1F4CA;如何为siRNA序列分配唯一标识符"></a>&#x1F4CA;如何为siRNA序列分配唯一标识符</h2><h3 id="x1F4A1-首先进行分词处理"><a href="#x1F4A1-首先进行分词处理" class="headerlink" title="&#x1F4A1;首先进行分词处理"></a>&#x1F4A1;首先进行分词处理</h3><h4 id="x1F4E3-对于未格式化的siRNA-antisense-seq等序列"><a href="#x1F4E3-对于未格式化的siRNA-antisense-seq等序列" class="headerlink" title="&#x1F4E3;对于未格式化的siRNA_antisense_seq等序列"></a>&#x1F4E3;对于未格式化的siRNA_antisense_seq等序列</h4><blockquote>
@@ -583,7 +582,7 @@
 </blockquote>
 <p>RNN的基本结构是一个单元（cell）或节点，其中包含一个输入层、一个隐藏层和一个输出层。隐藏层中的神经元通过时间反馈连接，使得信息可以在不同时间步之间传递和共享。这种结构使得RNN能够处理任意长度的序列数据，并且能够捕捉到序列中的上下文信息。</p>
 <blockquote>
-<p>RNN的架构示意图<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/f48dc300b4e84e29aa59b0553582be4d.png#pic_center">https://i-blog.csdnimg.cn/direct/f48dc300b4e84e29aa59b0553582be4d.png#pic_center</a> &#x3D;600x)<br>RNN，即循环神经网络（Recurrent Neural Network），是一种适合于序列数据的深度学习模型。它与传统的前馈神经网络（如多层感知机）不同，RNN 能够处理序列中的动态特征，即能够捕捉时间序列中的动态依赖关系。</p>
+<p>RNN的架构示意图<br><img src="https://i-blog.csdnimg.cn/direct/f48dc300b4e84e29aa59b0553582be4d.png" alt="在这里插入图片描述"><br>RNN，即循环神经网络（Recurrent Neural Network），是一种适合于序列数据的深度学习模型。它与传统的前馈神经网络（如多层感知机）不同，RNN 能够处理序列中的动态特征，即能够捕捉时间序列中的动态依赖关系。</p>
 </blockquote>
 <p>RNN的数学表达可以简化为以下形式：<br>$$<br> h_t &#x3D; f(W_{hh} h_{t-1} + W_{xh} x_t + b_h)<br>$$<br>$$<br>y_t &#x3D; f(W_{hy} h_t + b_y)<br>$$</p>
 <p>其中，<br>$h_t$是时间步$t$的隐藏状态。<br>$x_t$是时间步$t$的输入向量。<br>$W_{hh}$和$W_{xh}$分别是从上一个时间步的隐藏状态到当前隐藏状态、从当前时间步的输入到当前隐藏状态的权重矩阵。<br>$b_h$是隐藏层的偏置项。<br>$W_{hy}$是从隐藏状态到输出的权重矩阵。<br>$b_y$是输出层的偏置项。<br>$f$是激活函数。</p>
@@ -733,7 +732,7 @@
 <p>指定训练时使用的设备类型，如CPU或GPU。<br>一般本地训练需要调整</p>
 </blockquote>
 <p><strong>更多参数还是建议自主参考官方文档</strong><br><a target="_blank" rel="noopener" href="https://lightgbm.readthedocs.io/en/latest/Parameters.html">Parameters — LightGBM 4.5.0.99 documentation<br>https://lightgbm.readthedocs.io/en/latest/Parameters.htmll</a></p>
-<p>举例一个其他的模型的训练参数<br>![在这里插入图片描述](<a target="_blank" rel="noopener" href="https://i-blog.csdnimg.cn/direct/06551847b64747f9a13ecbcf6c382bf1.png#pic_center">https://i-blog.csdnimg.cn/direct/06551847b64747f9a13ecbcf6c382bf1.png#pic_center</a> &#x3D;600x)</p>
+<p>举例一个其他的模型的训练参数<br><img src="https://i-blog.csdnimg.cn/direct/06551847b64747f9a13ecbcf6c382bf1.png" alt="在这里插入图片描述"></p>
 <p>根据具体任务和数据的特点，可以尝试不同的参数组合来优化模型性能。</p>
 <blockquote>
 <p>tips : 可以构造更多特征，多模型融合，k折 ，调超参等方法涨点</p>
