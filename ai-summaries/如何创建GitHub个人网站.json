@@ -1,1 +1,0 @@
-{"title":"如何创建GitHub个人网站","summary":"如何创建GitHub个人网站本文将详细介绍如何从零开始搭建一个基于GitHub Pages的个人网站，包括环境配置、仓库创建、Hexo框架安装以及主题配置等全过程。 准备工作在开始之前，请确保你的电脑已经安装以下工具：  Node.js (建议选择LTS版本) Git  1。 配置SSH密钥 生成SSH密钥：  1ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;   查看公钥内容：  1cat ~/.ssh/id_rsa.pub  # Wind","reading_time":3,"updated":"2025-03-10T03:48:46.406Z"}

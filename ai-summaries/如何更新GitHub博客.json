@@ -1,1 +1,0 @@
-{"title":"如何更新GitHub博客","summary":"如何更新GitHub博客本文将介绍如何使用Hexo框架更新部署在GitHub Pages上的博客。 准备工作在开始之前，确保你已经安装了以下工具：  Node.js和npm Git Hexo CLI  更新博客的步骤1。 创建新文章使用以下命令创建一篇新文章： 1$ hexo new &quot;文章标题&quot;  这将在source/_posts目录下创建一个新的Markdown文件","reading_time":2,"updated":"2025-03-10T03:48:46.406Z"}
