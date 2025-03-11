@@ -1,95 +1,36 @@
 package s15;
-import java.util.*;
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
 
-/**
- * 试题 E: 最大分数
- * 
- * 【题目描述】
- * 有一个游戏，玩家可以使用2分、3分和4分的牌，需要放入4分槽和6分槽中。
- * 每个分槽可以放入多张牌，但总分必须正好等于槽的分值。
- * 给定各种分值的牌的数量和分槽的数量，求能获得的最大总分。
- * 
- * 【输入格式】
- * 第一行一个整数T，表示测试用例数
- * 接下来T行，每行5个整数：
- * a2, a3, a4：分别表示2分、3分、4分牌的数量
- * b4, b6：分别表示4分槽和6分槽的数量
- * 
- * 【输出格式】
- * 对于每个测试用例输出一行，表示能获得的最大分数
- * 
- * 【解题思路】
- * 1. 使用贪心算法，优先使用大分值的组合
- * 2. 对于4分槽，优先使用4分牌，其次是2+2分
- * 3. 对于6分槽，按以下顺序尝试：
- *    - 4+2分组合
- *    - 3+3分组合
- *    - 2+2+2分组合
- * 4. 最后处理剩余的单牌
- */
-public class t5 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();  // 测试用例数量
-        
-        for (int i = 0; i < n; i++) {
-            // 读入每种牌的数量和分槽数量
-            int a2 = sc.nextInt();  // 2分牌数量
-            int a3 = sc.nextInt();  // 3分牌数量
-            int a4 = sc.nextInt();  // 4分牌数量
-            int b4 = sc.nextInt();  // 4分槽数量
-            int b6 = sc.nextInt();  // 6分槽数量
-
-            int ans = 0;  // 记录总分
-            
-            // 优先处理完整分值的组合
-            while (b4 > 0 && a4 >= 1) {  // 用4分牌填4分槽
-                b4--; a4--; ans += 4;
-            }
-            while (b4 > 0 && a2 >= 2) {  // 用2+2分牌填4分槽
-                b4--; a2 -= 2; ans += 4;
-            }
-            while (b6 > 0 && a4 >= 1 && a2 >= 1) {  // 用4+2分牌填6分槽
-                b6--; a4--; a2--; ans += 6;
-            }
-            while (b6 > 0 && a3 >= 2) {  // 用3+3分牌填6分槽
-                b6--; a3 -= 2; ans += 6;
-            }
-            while (b6 > 0 && a2 >= 3) {  // 用2+2+2分牌填6分槽
-                b6--; a2 -= 3; ans += 6;
-            }
-            
-            // 处理剩余的不完整组合
-            // 处理5分组合
-            while (b6 > 0 && a3 >= 1 && a2 >= 1) {  // 用3+2分牌
-                b6--; a3--; a2--; ans += 5;
-            }
-            while (b4 > 0 && a3 >= 1) {  // 用3分牌填4分槽
-                b4--; a3--; ans += 3;
-            }
-            
-            // 处理4分组合
-            while (b6 > 0 && a4 >= 1) {  // 用4分牌
-                b6--; a4--; ans += 4;
-            }
-            while (b6 > 0 && a2 >= 2) {  // 用2+2分牌
-                b6--; a2 -= 2; ans += 4;
-            }
-            while (b4 > 0 && a2 >= 1) {  // 用2分牌填4分槽
-                b4--; a2--; ans += 2;
-            }
-            
-            // 处理3分和2分
-            while (b6 > 0 && a3 >= 1) {  // 用3分牌
-                b6--; a3--; ans += 3;
-            }
-            while (b6 > 0 && a2 >= 1) {  // 用2分牌
-                b6--; a2--; ans += 2;
-            }
-            
-            System.out.println(ans);
+public class t5{
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		// TODO Auto-generated method stub
+        int N = sc.nextInt();
+        double p = sc.nextDouble();
+        double q = 1 - p;
+        double minn = Double.MAX_VALUE;
+        int minK = Integer.MAX_VALUE;
+        int k;
+        for(k = N; k >= 1; k --) {
+        	if(N % k == 0) {
+        		double wugan = Math.pow(q, k);// 全部不感染
+        		double e = (N / k ) * (wugan  * 1  + (1 + k) * (1 - wugan));
+        		//对于每个可能的 K，计算每组的期望测试剂消耗。
+        		//公式中的 (1−p) K表示该组中没有宠物被感染的概率，而 1−(1−p)K表示该组中至少有一只宠物被感染的概率。
+        		//如果组中没有宠物被感染，只需要消耗 1 次试剂；
+        		//如果组中有宠物被感染，则需要消耗 1+K 次试剂（1 次初始检测 + K 次重新检测）。 	
+        		if(k == 1) e = N;
+        		if(e <= minn) {
+        			minK = Math.min(minK, k);
+        			minn = e;
+        		}
+        	}
         }
+        System.out.println(minK);
+		sc.close();
+	}
 
-        sc.close();
-    }
 }

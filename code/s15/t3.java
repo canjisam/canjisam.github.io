@@ -1,71 +1,48 @@
 package s15;
+
 import java.util.*;
 
-/**
- * 试题 C: 数字重排
- * 
- * 【题目描述】
- * 给定一个正整数n，将其各个数位重新排列，可以得到若干个不同的数。
- * 请问这些数中第k小的数是多少？
- * 
- * 【输入格式】
- * 输入两个整数n和k，用空格分隔。
- * 
- * 【输出格式】
- * 输出一个整数，表示重排后第k小的数。
- * 
- * 【解题思路】
- * 1. 将数字n转换为字符数组，便于排列
- * 2. 使用回溯法生成所有可能的排列
- * 3. 去除重复的排列（考虑数字中有重复数字的情况）
- * 4. 将所有排列排序后取第k个
- */
 public class t3 {
-    static List<String> result = new ArrayList<>();
-    
+
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String n = scan.next();  // 输入数字n
-        int k = scan.nextInt();  // 输入k
+        Scanner sc = new Scanner(System.in);
         
-        // 将数字转换为字符数组并排序
-        char[] nums = n.toCharArray();
-        Arrays.sort(nums);
+        // 读取数组的长度 n
+        int n = sc.nextInt();
+        // 初始化一个长度为 n 的数组 a，初始值为 0
+        int[] a = new int[n];
         
-        // 生成所有排列
-        backtrack(nums, new boolean[nums.length], new StringBuilder());
-        
-        // 对结果排序并去重
-        result = new ArrayList<>(new TreeSet<>(result));
-        
-        // 输出第k小的数
-        System.out.println(result.get(k - 1));
-        scan.close();
-    }
-    
-    /**
-     * 使用回溯法生成所有可能的排列
-     * @param nums 原始数字数组
-     * @param used 记录每个位置是否使用过
-     * @param current 当前正在构建的排列
-     */
-    private static void backtrack(char[] nums, boolean[] used, StringBuilder current) {
-        if (current.length() == nums.length) {
-            result.add(current.toString());
-            return;
+        // 循环读取输入的操作
+        while (sc.hasNext()) {
+            String s = sc.next();
+            
+            if (s.equals("add")) {
+                // 如果操作是 "add"，则增加数组第一个元素的计数
+                int x = sc.nextInt(); // 读取但不使用 x，因为题意中不需要这个参数
+                a[0]++;
+            } else if (s.equals("sync")) {
+                // 如果操作是 "sync"，则更新指定位置的元素
+                int x = sc.nextInt();
+                // 更新 a[x] 为 a[x] + 1 和 a[0] 中的较小值
+                a[x] = Math.min(a[x] + 1, a[0]);
+            } else if (s.equals("query")) {
+                // 如果操作是 "query"，则查询数组中最小的非零元素
+                int ans = Integer.MAX_VALUE;
+                for (int i = 1; i < n; i++) {
+                    // 打印当前数组元素（调试用）
+                    System.err.print(a[i] + " ");
+                    // 更新答案为当前数组元素和当前答案中的较小值
+                    ans = Math.min(a[i], ans);
+                }
+                // 输出查询结果
+                System.out.println(ans);
+            }
         }
         
-        for (int i = 0; i < nums.length; i++) {
-            if (used[i]) continue;
-            
-            // 跳过重复数字
-            if (i > 0 && nums[i] == nums[i-1] && !used[i-1]) continue;
-            
-            used[i] = true;
-            current.append(nums[i]);
-            backtrack(nums, used, current);
-            current.setLength(current.length() - 1);
-            used[i] = false;
-        }
+        // 关闭Scanner对象以释放资源
+        sc.close();
     }
 }
+
+
+

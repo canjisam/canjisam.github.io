@@ -182,8 +182,9 @@ public class t8 {
             System.out.println(ans);
         }
     }
-    static class stversion{
-    	static class SegmentTree {
+
+    static class stversion {
+        static class SegmentTree {
             int n;
             int[] tree;
 
@@ -192,7 +193,7 @@ public class t8 {
                 tree = new int[4 * n];
             }
 
-            // 更新树状数组，在位置i处增加值val
+            // 更新树状数组，在位置idx处增加值val
             void update(int idx, int val, int node, int start, int end) {
                 if (start == end) {
                     tree[node] += val;
@@ -277,10 +278,11 @@ public class t8 {
             System.out.println(ans);
         }
     }
+
     public static void main(String args[]) {
 //        fwtversion.slove();
 //        bitversion.solve();
-    	stversion.solve();
+        stversion.solve();
     }
 }
 
