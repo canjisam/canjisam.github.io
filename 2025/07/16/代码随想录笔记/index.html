@@ -1,9 +1,20 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>代码随想录笔记 | 诒森的博客</title><meta name="author" content="CanJisam"><meta name="copyright" content="CanJisam"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article"><meta property="og:title" content="代码随想录笔记"><meta property="og:url" content="https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/index.html"><meta property="og:site_name" content="诒森的博客"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://canjisam.github.io/img/cover/eca45645431b46fea6db1634a45287b2_1.png"><meta property="article:published_time" content="2025-07-16T14:41:49.000Z"><meta property="article:modified_time" content="2025-07-16T14:41:49.603Z"><meta property="article:author" content="CanJisam"><meta property="article:tag" content="CanJisam, 前端, 后端, 架构, 运维, 数据库, 算法, 面试, 博客"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://canjisam.github.io/img/cover/eca45645431b46fea6db1634a45287b2_1.png"><script type="application/ld+json">{
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>代码随想录笔记 | 诒森的博客</title><meta name="author" content="CanJisam"><meta name="copyright" content="CanJisam"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<meta property="og:title" content="代码随想录笔记">
+<meta property="og:url" content="https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="诒森的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://canjisam.github.io/img/cover/eca45645431b46fea6db1634a45287b2_3.png">
+<meta property="article:published_time" content="2025-07-16T14:41:49.000Z">
+<meta property="article:modified_time" content="2025-07-16T14:41:49.603Z">
+<meta property="article:author" content="CanJisam">
+<meta property="article:tag" content="CanJisam, 前端, 后端, 架构, 运维, 数据库, 算法, 面试, 博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://canjisam.github.io/img/cover/eca45645431b46fea6db1634a45287b2_3.png"><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "代码随想录笔记",
   "url": "https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/",
-  "image": "https://canjisam.github.io/img/cover/eca45645431b46fea6db1634a45287b2_1.png",
+  "image": "https://canjisam.github.io/img/cover/eca45645431b46fea6db1634a45287b2_3.png",
   "datePublished": "2025-07-16T14:41:49.000Z",
   "dateModified": "2025-07-16T14:41:49.603Z",
   "author": [
@@ -13,4 +24,195 @@
       "url": "https://canjisam.github.io/"
     }
   ]
-}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=5.3.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><script>(()=>{const t={set:(e,t,o)=>{if(!o)return;const a=Date.now()+864e5*o;localStorage.setItem(e,JSON.stringify({value:t,expiry:a}))},get:e=>{const t=localStorage.getItem(e);if(!t)return;const{value:o,expiry:a}=JSON.parse(t);if(!(Date.now()>a))return o;localStorage.removeItem(e)}};window.btf={saveToLocal:t,getScript:(e,t={})=>new Promise((o,a)=>{const n=document.createElement("script");n.src=e,n.async=!0,Object.entries(t).forEach(([e,t])=>n.setAttribute(e,t)),n.onload=n.onreadystatechange=()=>{n.readyState&&!/loaded|complete/.test(n.readyState)||o()},n.onerror=a,document.head.appendChild(n)}),getCSS:(e,t)=>new Promise((o,a)=>{const n=document.createElement("link");n.rel="stylesheet",n.href=e,t&&(n.id=t),n.onload=n.onreadystatechange=()=>{n.readyState&&!/loaded|complete/.test(n.readyState)||o()},n.onerror=a,document.head.appendChild(n)}),addGlobalFn:(e,t,o=!1,a=window)=>{if(e.startsWith("pjax"))return;const n=a.globalFn||{};n[e]=n[e]||{},n[e][o||Object.keys(n[e]).length]=t,a.globalFn=n}};const o=()=>{document.documentElement.setAttribute("data-theme","dark"),null!==document.querySelector('meta[name="theme-color"]')&&document.querySelector('meta[name="theme-color"]').setAttribute("content","#1a1a2e")},a=()=>{document.documentElement.setAttribute("data-theme","light"),null!==document.querySelector('meta[name="theme-color"]')&&document.querySelector('meta[name="theme-color"]').setAttribute("content","#ffffff")};btf.activateDarkMode=o,btf.activateLightMode=a;const n=t.get("theme"),r=window.matchMedia("(prefers-color-scheme: dark)"),c=window.matchMedia("(prefers-color-scheme: light)");if(void 0===n){if(c.matches)a();else if(r.matches)o();else{const e=(new Date).getHours();e<=6||e>=18?o():a()}r.addEventListener("change",()=>{void 0===t.get("theme")&&(e.matches?o():a())})}else"light"===n?a():o();const d=t.get("aside-status");void 0!==d&&document.documentElement.classList.toggle("hide-aside","hide"===d);/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)&&document.documentElement.classList.add("apple")})()</script><script>const GLOBAL_CONFIG={root:"/",algolia:void 0,localSearch:{path:"/search.xml",preload:!1,top_n_per_article:1,unescape:!1,languages:{hits_empty:"未找到符合您查询的内容：${query}",hits_stats:"共找到 ${hits} 篇文章"}},translate:{defaultEncoding:2,translateDelay:0,msgToTraditionalChinese:"繁",msgToSimplifiedChinese:"簡"},highlight:{plugin:"prismjs",highlightCopy:!0,highlightLang:!0,highlightHeightLimit:600,highlightFullpage:!0,highlightMacStyle:!0},copy:{success:"复制成功",error:"复制失败",noSupport:"浏览器不支持"},relativeDate:{homepage:!1,post:!1},runtime:"",dateSuffix:{just:"刚刚",min:"分钟前",hour:"小时前",day:"天前",month:"个月前"},copyright:void 0,lightbox:"null",Snackbar:void 0,infinitegrid:{js:"https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js",buttonText:"加载更多"},isPhotoFigcaption:!1,islazyloadPlugin:!1,isAnchor:!1,percent:{toc:!0,rightside:!1},autoDarkmode:!0}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"代码随想录笔记",isHighlightShrink:!0,isToc:!1,pageType:"post"}</script><script>window.XF_API_KEY="33ec326f4348794e214e464ff2990f32",window.XF_API_SECRET="NDQ3NGYyZWMwZWQ0ZWQ4ZWUzMTMwY2Y4"</script><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions={restartOnPushState:!1},btf.addGlobalFn("pjaxSend",()=>{Pace.restart()},"pace_restart")</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">诒森的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">代码随想录笔记</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">代码随想录笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-16T14:41:49.000Z" title="发表于 2025-07-16 22:41:49">2025-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-16T14:41:49.603Z" title="更新于 2025-07-16 22:41:49">2025-07-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">0</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span class="min2read">1 分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/#post-comment"><span class="valine-comment-count" data-xid="/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/"></span><span class="waline-comment-count" id="/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/"></span><span class="twikoo-count"></span><span class="fb-comments-count"></span><span class="gitalk-comment-count"></span></a></span></div></div></div><article class="container post-content" id="article-container"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://canjisam.github.io">CanJisam</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/">https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://canjisam.github.io" target="_blank">诒森的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/cover/eca45645431b46fea6db1634a45287b2_1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.4/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/07/16/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%B9%A6%E7%B1%8D%E7%AC%94%E8%AE%B0/" title="算法竞赛书籍笔记"><img class="cover" src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_3.png" onerror='onerror=null,src="/img/404.jpg"' alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">算法竞赛书籍笔记</div></div><div class="info-2"><div class="info-item-1">《算法竞赛》笔记及拓展基础数据结构链表 链表的特点是用一组任意的存储单元存储线性表的数据元素，可以是连续的存储空间，也可以是不连续的存储空间。 链表的基础操作有：初始化 添加 遍历 插入 删除 查找 链表分为单向链表和双向链表。 单向链表：只能从头到尾遍历。 双向链表：可以从头到尾和从尾到头遍历。 链表的存储方式有： 静态链表：使用数组实现，适合元素个数已知 动态链表：使用指针实现，适合元素个数不确定 动态链表 静态链表 STL 队列栈二叉树堆总结</div></div></div></a><a class="pagination-related" href="/2025/08/15/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95SSO%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" title="单点登录(SSO)技术详解：原理、实现与最佳实践"><img class="cover" src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_2.png" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">单点登录(SSO)技术详解：原理、实现与最佳实践</div></div><div class="info-2"><div class="info-item-1">单点登录（SSO）技术在企业应用中扮演着至关重要的角色。它通过让用户使用一组凭据访问多个应用，极大地提升了用户体验和工作效率，同时降低了管理成本和安全风险。本文将深入探讨SSO的原理、实现方式以及最佳实践。 1. SSO的核心价值 提升用户体验：用户无需记住多个应用的登录凭据，只需登录一次即可访问所有授权应用。 减少密码疲劳：用户只需记住一组凭据，降低了因频繁输入密码而产生的疲劳感。 简化管理：IT部门可以集中管理用户权限和访问控制，便于实施统一的安全策略。 增强安全性：通过集中管理和多因素认证等手段，有效降低账号被盗用的风险。 2. SSO的工作原理2.1...</div></div></div></a></nav><hr class="custom-hr"><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/cover/avator.png" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info-name">CanJisam</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">55</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">93</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/canjisam"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/canjisam" target="_blank" title="Github"><i class="fab fa-github" style="color:#24292e"></i></a><a class="social-icon" href="mailto:canjisam@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color:#4a7dbe"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎关注微信公众号：昨宵梦寐与君语（国内访问更稳定）</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="Linux系统管理核心知识点详解"><img src="/img/cover/eca45645431b46fea6db1634a45287b2_0.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Linux系统管理核心知识点详解"></a><div class="content"><a class="title" href="/2025/08/18/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="Linux系统管理核心知识点详解">Linux系统管理核心知识点详解</a><time datetime="2025-08-18T15:46:10.000Z" title="发表于 2025-08-18 23:46:10">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="计算机网络核心知识点详解"><img src="/img/cover/eca45645431b46fea6db1634a45287b2_3.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="计算机网络核心知识点详解"></a><div class="content"><a class="title" href="/2025/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="计算机网络核心知识点详解">计算机网络核心知识点详解</a><time datetime="2025-08-18T15:33:50.000Z" title="发表于 2025-08-18 23:33:50">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="数据结构与算法笔试核心知识点详解"><img src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_3.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="数据结构与算法笔试核心知识点详解"></a><div class="content"><a class="title" href="/2025/08/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="数据结构与算法笔试核心知识点详解">数据结构与算法笔试核心知识点详解</a><time datetime="2025-08-18T14:54:27.000Z" title="发表于 2025-08-18 22:54:27">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/JVM%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E4%B8%8E%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98/" title="JVM原理深度解析与调优实战"><img src="/img/cover/eca45645431b46fea6db1634a45287b2_2.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="JVM原理深度解析与调优实战"></a><div class="content"><a class="title" href="/2025/08/18/JVM%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E4%B8%8E%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98/" title="JVM原理深度解析与调优实战">JVM原理深度解析与调优实战</a><time datetime="2025-08-18T14:54:20.000Z" title="发表于 2025-08-18 22:54:20">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/15/JWT%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" title="JWT技术详解：原理、应用与最佳实践"><img src="/img/cover/eca45645431b46fea6db1634a45287b2_0.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="JWT技术详解：原理、应用与最佳实践"></a><div class="content"><a class="title" href="/2025/08/15/JWT%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" title="JWT技术详解：原理、应用与最佳实践">JWT技术详解：原理、应用与最佳实践</a><time datetime="2025-08-15T14:13:47.000Z" title="发表于 2025-08-15 22:13:47">2025-08-15</time></div></div></div></div></div></div></main><footer id="footer" style="background-image:url(/img/cover/footer-bg.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By CanJisam</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.3.5/source/js/utils.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.3.5/source/js/main.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.3.5/source/js/tw_cn.min.js"></script><div class="js-pjax"><script>(()=>{const t="shuoshuo"===GLOBAL_CONFIG_SITE.pageType,e={distractionFreeMode:!0},n=t=>{const e=document.querySelector("#post-meta .gitalk-comment-count");e&&(e.textContent=t)},i=(i,a)=>{t&&(window.shuoshuoComment.destroyGitalk=()=>{i.children.length&&(i.innerHTML="",i.classList.add("no-comment"))});new Gitalk({clientID:"Ov23lifFntnoMvOg1Fir",clientSecret:"0596c9896ad9c699f2188c823bce11b2d3d231e6",repo:"canjisam.github.io",owner:"canjisam",admin:["canjisam"],updateCountCallback:n,...e,id:t?a:e&&e.id||"e1a6987ee05b6c8122c16741b21066e7"}).render("gitalk-container")},a=async(t,e)=>{"function"==typeof Gitalk||(await btf.getCSS("https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css"),await btf.getScript("https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js")),i(t,e)};t?window.shuoshuoComment={loadComment:a}:a()})()</script></div><script>window.XF_API_KEY="33ec326f4348794e214e464ff2990f32",window.XF_API_SECRET="NDQ3NGYyZWMwZWQ0ZWQ4ZWUzMTMwY2Y4"</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章..." type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@5.3.5/source/js/search/local-search.min.js"></script></div></div></body></html>
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '代码随想录笔记',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><script>window.XF_API_KEY = "33ec326f4348794e214e464ff2990f32";
+window.XF_API_SECRET = "NDQ3NGYyZWMwZWQ0ZWQ4ZWUzMTMwY2Y4";</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">代码随想录笔记</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">代码随想录笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-16T14:41:49.000Z" title="发表于 2025-07-16 22:41:49">2025-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-16T14:41:49.603Z" title="更新于 2025-07-16 22:41:49">2025-07-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">0</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span class="min2read">1 分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/#post-comment"><span class="valine-comment-count" data-xid="/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/"></span><span class="waline-comment-count" id="/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/"></span><span class="twikoo-count"></span><span class="fb-comments-count"></span><span class="gitalk-comment-count"></span></a></span></div></div></div><article class="container post-content" id="article-container"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://canjisam.github.io">CanJisam</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/">https://canjisam.github.io/2025/07/16/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://canjisam.github.io" target="_blank">诒森的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/cover/eca45645431b46fea6db1634a45287b2_3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/07/16/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%B9%A6%E7%B1%8D%E7%AC%94%E8%AE%B0/" title="算法竞赛书籍笔记"><img class="cover" src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">算法竞赛书籍笔记</div></div><div class="info-2"><div class="info-item-1">《算法竞赛》笔记及拓展基础数据结构链表 链表的特点是用一组任意的存储单元存储线性表的数据元素，可以是连续的存储空间，也可以是不连续的存储空间。   链表的基础操作有：初始化 添加 遍历 插入 删除 查找 链表分为单向链表和双向链表。 单向链表：只能从头到尾遍历。 双向链表：可以从头到尾和从尾到头遍历。   链表的存储方式有： 静态链表：使用数组实现，适合元素个数已知 动态链表：使用指针实现，适合元素个数不确定  动态链表  静态链表  STL    队列栈二叉树堆总结</div></div></div></a><a class="pagination-related" href="/2025/08/15/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95SSO%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" title="单点登录(SSO)技术详解：原理、实现与最佳实践"><img class="cover" src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">单点登录(SSO)技术详解：原理、实现与最佳实践</div></div><div class="info-2"><div class="info-item-1">单点登录（SSO）技术在企业应用中扮演着至关重要的角色。它通过让用户使用一组凭据访问多个应用，极大地提升了用户体验和工作效率，同时降低了管理成本和安全风险。本文将深入探讨SSO的原理、实现方式以及最佳实践。 1. SSO的核心价值 提升用户体验：用户无需记住多个应用的登录凭据，只需登录一次即可访问所有授权应用。 减少密码疲劳：用户只需记住一组凭据，降低了因频繁输入密码而产生的疲劳感。 简化管理：IT部门可以集中管理用户权限和访问控制，便于实施统一的安全策略。 增强安全性：通过集中管理和多因素认证等手段，有效降低账号被盗用的风险。  2. SSO的工作原理2.1...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/cover/avator.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">CanJisam</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">55</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">93</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/canjisam"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/canjisam" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:canjisam@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎关注微信公众号：昨宵梦寐与君语（国内访问更稳定）</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="Linux系统管理核心知识点详解"><img src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux系统管理核心知识点详解"/></a><div class="content"><a class="title" href="/2025/08/18/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="Linux系统管理核心知识点详解">Linux系统管理核心知识点详解</a><time datetime="2025-08-18T15:46:10.000Z" title="发表于 2025-08-18 23:46:10">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="计算机网络核心知识点详解"><img src="/img/cover/eca45645431b46fea6db1634a45287b2_1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络核心知识点详解"/></a><div class="content"><a class="title" href="/2025/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="计算机网络核心知识点详解">计算机网络核心知识点详解</a><time datetime="2025-08-18T15:33:50.000Z" title="发表于 2025-08-18 23:33:50">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="数据结构与算法笔试核心知识点详解"><img src="/img/cover/eca45645431b46fea6db1634a45287b2_3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构与算法笔试核心知识点详解"/></a><div class="content"><a class="title" href="/2025/08/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AF%A6%E8%A7%A3/" title="数据结构与算法笔试核心知识点详解">数据结构与算法笔试核心知识点详解</a><time datetime="2025-08-18T14:54:27.000Z" title="发表于 2025-08-18 22:54:27">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/JVM%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E4%B8%8E%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98/" title="JVM原理深度解析与调优实战"><img src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM原理深度解析与调优实战"/></a><div class="content"><a class="title" href="/2025/08/18/JVM%E5%8E%9F%E7%90%86%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E4%B8%8E%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98/" title="JVM原理深度解析与调优实战">JVM原理深度解析与调优实战</a><time datetime="2025-08-18T14:54:20.000Z" title="发表于 2025-08-18 22:54:20">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/15/JWT%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" title="JWT技术详解：原理、应用与最佳实践"><img src="/img/cover/9f13ef7ffc274ea1974a8c4bd3849b26_0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JWT技术详解：原理、应用与最佳实践"/></a><div class="content"><a class="title" href="/2025/08/15/JWT%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" title="JWT技术详解：原理、应用与最佳实践">JWT技术详解：原理、应用与最佳实践</a><time datetime="2025-08-15T14:13:47.000Z" title="发表于 2025-08-15 22:13:47">2025-08-15</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/cover/footer-bg.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By CanJisam</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"distractionFreeMode":true}
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'Ov23lifFntnoMvOg1Fir',
+      clientSecret: '0596c9896ad9c699f2188c823bce11b2d3d231e6',
+      repo: 'canjisam.github.io',
+      owner: 'canjisam',
+      admin: ['canjisam'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || 'e1a6987ee05b6c8122c16741b21066e7'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script>window.XF_API_KEY="33ec326f4348794e214e464ff2990f32"; window.XF_API_SECRET="NDQ3NGYyZWMwZWQ0ZWQ4ZWUzMTMwY2Y4";</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
