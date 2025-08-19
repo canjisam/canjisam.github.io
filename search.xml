@@ -611,11 +611,11 @@
             
             <tag> Java </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> HashMap </tag>
             
             <tag> HashSet </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 竞赛 </tag>
             
@@ -839,35 +839,6 @@
     
     
     <entry>
-      <title>Docker Desktop RocketMQ Topic创建指南</title>
-      <link href="/2025/03/14/Docker-Desktop-RocketMQ-Topic%E5%88%9B%E5%BB%BA%E6%8C%87%E5%8D%97/"/>
-      <url>/2025/03/14/Docker-Desktop-RocketMQ-Topic%E5%88%9B%E5%BB%BA%E6%8C%87%E5%8D%97/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>本文将详细介绍如何在Docker Desktop环境下的RocketMQ中创建和管理Topic，包括命令行和控制台两种方式。</p></blockquote><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>在开始之前，请确保：</p><ol><li>Docker Desktop已正确安装并运行</li><li>RocketMQ服务已在Docker中部署并正常运行</li><li>已安装RocketMQ控制台（可选）</li></ol><h2 id="使用命令行创建Topic"><a href="#使用命令行创建Topic" class="headerlink" title="使用命令行创建Topic"></a>使用命令行创建Topic</h2><h3 id="1-进入RocketMQ容器"><a href="#1-进入RocketMQ容器" class="headerlink" title="1. 进入RocketMQ容器"></a>1. 进入RocketMQ容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看运行中的容器</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入broker容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it rmqbroker bash</span><br></pre></td></tr></table></figure><h3 id="2-创建Topic"><a href="#2-创建Topic" class="headerlink" title="2. 创建Topic"></a>2. 创建Topic</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本语法</span></span><br><span class="line">mqadmin updateTopic -n localhost:9876 -t 主题名称 -c DefaultCluster</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：创建一个名为TestTopic的主题</span></span><br><span class="line">mqadmin updateTopic -n localhost:9876 -t TestTopic -c DefaultCluster</span><br></pre></td></tr></table></figure><p>mqadmin updateTopic -n localhost:9876 -t user_login_send_msg -c DefaultCluster</p><h3 id="3-主要参数说明"><a href="#3-主要参数说明" class="headerlink" title="3. 主要参数说明"></a>3. 主要参数说明</h3><ul><li><code>-n</code>：NameServer地址</li><li><code>-t</code>：Topic名称</li><li><code>-c</code>：集群名称</li><li><code>-r</code>：读队列数（可选，默认为4）</li><li><code>-w</code>：写队列数（可选，默认为4）</li><li><code>-p</code>：权限（可选，2&#x3D;读写，4&#x3D;只读，6&#x3D;只写）</li></ul><h2 id="使用控制台创建Topic"><a href="#使用控制台创建Topic" class="headerlink" title="使用控制台创建Topic"></a>使用控制台创建Topic</h2><h3 id="1-访问RocketMQ控制台"><a href="#1-访问RocketMQ控制台" class="headerlink" title="1. 访问RocketMQ控制台"></a>1. 访问RocketMQ控制台</h3><ul><li>打开浏览器访问：<code>http://localhost:8080</code></li><li>默认用户名和密码：admin&#x2F;admin</li></ul><h3 id="2-创建Topic步骤"><a href="#2-创建Topic步骤" class="headerlink" title="2. 创建Topic步骤"></a>2. 创建Topic步骤</h3><ol><li>点击左侧菜单中的「Topic」</li><li>点击「添加Topic」按钮</li><li>填写Topic信息：<ul><li>Topic名称（必填）</li><li>集群名称（必选）</li><li>读写队列数（可选）</li><li>权限设置（可选）</li></ul></li><li>点击「确认」完成创建</li></ol><h2 id="Topic命名规范"><a href="#Topic命名规范" class="headerlink" title="Topic命名规范"></a>Topic命名规范</h2><h3 id="1-命名规则"><a href="#1-命名规则" class="headerlink" title="1. 命名规则"></a>1. 命名规则</h3><ul><li>使用英文字母、数字、下划线和中划线</li><li>长度建议不超过64个字符</li><li>建议使用有意义的前缀</li></ul><h3 id="2-命名示例"><a href="#2-命名示例" class="headerlink" title="2. 命名示例"></a>2. 命名示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 推荐的命名格式</span><br><span class="line">&#123;业务&#125;.&#123;模块&#125;.&#123;功能&#125;</span><br><span class="line"></span><br><span class="line">// 示例</span><br><span class="line">order.payment.notification</span><br><span class="line">user.register.event</span><br><span class="line">log.error.collect</span><br></pre></td></tr></table></figure><h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="1-队列数量设置"><a href="#1-队列数量设置" class="headerlink" title="1. 队列数量设置"></a>1. 队列数量设置</h3><ul><li>读写队列数建议设置相同</li><li>单个Topic队列数建议4-8个</li><li>根据消息量和消费者数量适当调整</li></ul><h3 id="2-容量规划"><a href="#2-容量规划" class="headerlink" title="2. 容量规划"></a>2. 容量规划</h3><ul><li>评估单个Topic的消息量</li><li>考虑消息存储时间</li><li>预留足够的磁盘空间</li></ul><h3 id="3-权限控制"><a href="#3-权限控制" class="headerlink" title="3. 权限控制"></a>3. 权限控制</h3><ul><li>生产环境建议开启权限控制</li><li>按照最小权限原则设置</li><li>定期审查Topic权限</li></ul><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1-Topic创建失败"><a href="#1-Topic创建失败" class="headerlink" title="1. Topic创建失败"></a>1. Topic创建失败</h3><p>可能原因：</p><ul><li>NameServer连接失败</li><li>权限不足</li><li>Topic名称已存在</li></ul><p>解决方案：</p><ol><li>检查NameServer连接</li><li>确认操作权限</li><li>使用新的Topic名称</li></ol><h3 id="2-队列数调整"><a href="#2-队列数调整" class="headerlink" title="2. 队列数调整"></a>2. 队列数调整</h3><ul><li>Topic创建后可以增加队列数</li><li>不建议减少队列数</li><li>调整时注意评估影响</li></ul><h2 id="监控与维护"><a href="#监控与维护" class="headerlink" title="监控与维护"></a>监控与维护</h2><h3 id="1-Topic状态监控"><a href="#1-Topic状态监控" class="headerlink" title="1. Topic状态监控"></a>1. Topic状态监控</h3><ul><li>监控消息堆积情况</li><li>关注消息延迟</li><li>检查消息成功率</li></ul><h3 id="2-定期维护"><a href="#2-定期维护" class="headerlink" title="2. 定期维护"></a>2. 定期维护</h3><ul><li>清理无用Topic</li><li>优化队列配置</li><li>更新权限设置</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>合理的Topic创建和管理对于消息中间件的稳定运行至关重要。通过遵循最佳实践和规范，可以提高系统的可用性和可维护性。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://rocketmq.apache.org/docs/quick-start/">RocketMQ官方文档</a></li><li><a href="https://rocketmq.apache.org/docs/best-practice-broker/">RocketMQ最佳实践</a></li><li><a href="https://docs.docker.com/desktop/">Docker Desktop文档</a></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> RocketMQ </tag>
-            
-            <tag> 技术教程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Docker Desktop 连接Idea</title>
       <link href="/2025/03/14/Docker-Desktop-%E8%BF%9E%E6%8E%A5Idea/"/>
       <url>/2025/03/14/Docker-Desktop-%E8%BF%9E%E6%8E%A5Idea/</url>
@@ -889,6 +860,35 @@
             <tag> 技术教程 </tag>
             
             <tag> IDEA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker Desktop RocketMQ Topic创建指南</title>
+      <link href="/2025/03/14/Docker-Desktop-RocketMQ-Topic%E5%88%9B%E5%BB%BA%E6%8C%87%E5%8D%97/"/>
+      <url>/2025/03/14/Docker-Desktop-RocketMQ-Topic%E5%88%9B%E5%BB%BA%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文将详细介绍如何在Docker Desktop环境下的RocketMQ中创建和管理Topic，包括命令行和控制台两种方式。</p></blockquote><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>在开始之前，请确保：</p><ol><li>Docker Desktop已正确安装并运行</li><li>RocketMQ服务已在Docker中部署并正常运行</li><li>已安装RocketMQ控制台（可选）</li></ol><h2 id="使用命令行创建Topic"><a href="#使用命令行创建Topic" class="headerlink" title="使用命令行创建Topic"></a>使用命令行创建Topic</h2><h3 id="1-进入RocketMQ容器"><a href="#1-进入RocketMQ容器" class="headerlink" title="1. 进入RocketMQ容器"></a>1. 进入RocketMQ容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看运行中的容器</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入broker容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it rmqbroker bash</span><br></pre></td></tr></table></figure><h3 id="2-创建Topic"><a href="#2-创建Topic" class="headerlink" title="2. 创建Topic"></a>2. 创建Topic</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本语法</span></span><br><span class="line">mqadmin updateTopic -n localhost:9876 -t 主题名称 -c DefaultCluster</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：创建一个名为TestTopic的主题</span></span><br><span class="line">mqadmin updateTopic -n localhost:9876 -t TestTopic -c DefaultCluster</span><br></pre></td></tr></table></figure><p>mqadmin updateTopic -n localhost:9876 -t user_login_send_msg -c DefaultCluster</p><h3 id="3-主要参数说明"><a href="#3-主要参数说明" class="headerlink" title="3. 主要参数说明"></a>3. 主要参数说明</h3><ul><li><code>-n</code>：NameServer地址</li><li><code>-t</code>：Topic名称</li><li><code>-c</code>：集群名称</li><li><code>-r</code>：读队列数（可选，默认为4）</li><li><code>-w</code>：写队列数（可选，默认为4）</li><li><code>-p</code>：权限（可选，2&#x3D;读写，4&#x3D;只读，6&#x3D;只写）</li></ul><h2 id="使用控制台创建Topic"><a href="#使用控制台创建Topic" class="headerlink" title="使用控制台创建Topic"></a>使用控制台创建Topic</h2><h3 id="1-访问RocketMQ控制台"><a href="#1-访问RocketMQ控制台" class="headerlink" title="1. 访问RocketMQ控制台"></a>1. 访问RocketMQ控制台</h3><ul><li>打开浏览器访问：<code>http://localhost:8080</code></li><li>默认用户名和密码：admin&#x2F;admin</li></ul><h3 id="2-创建Topic步骤"><a href="#2-创建Topic步骤" class="headerlink" title="2. 创建Topic步骤"></a>2. 创建Topic步骤</h3><ol><li>点击左侧菜单中的「Topic」</li><li>点击「添加Topic」按钮</li><li>填写Topic信息：<ul><li>Topic名称（必填）</li><li>集群名称（必选）</li><li>读写队列数（可选）</li><li>权限设置（可选）</li></ul></li><li>点击「确认」完成创建</li></ol><h2 id="Topic命名规范"><a href="#Topic命名规范" class="headerlink" title="Topic命名规范"></a>Topic命名规范</h2><h3 id="1-命名规则"><a href="#1-命名规则" class="headerlink" title="1. 命名规则"></a>1. 命名规则</h3><ul><li>使用英文字母、数字、下划线和中划线</li><li>长度建议不超过64个字符</li><li>建议使用有意义的前缀</li></ul><h3 id="2-命名示例"><a href="#2-命名示例" class="headerlink" title="2. 命名示例"></a>2. 命名示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 推荐的命名格式</span><br><span class="line">&#123;业务&#125;.&#123;模块&#125;.&#123;功能&#125;</span><br><span class="line"></span><br><span class="line">// 示例</span><br><span class="line">order.payment.notification</span><br><span class="line">user.register.event</span><br><span class="line">log.error.collect</span><br></pre></td></tr></table></figure><h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="1-队列数量设置"><a href="#1-队列数量设置" class="headerlink" title="1. 队列数量设置"></a>1. 队列数量设置</h3><ul><li>读写队列数建议设置相同</li><li>单个Topic队列数建议4-8个</li><li>根据消息量和消费者数量适当调整</li></ul><h3 id="2-容量规划"><a href="#2-容量规划" class="headerlink" title="2. 容量规划"></a>2. 容量规划</h3><ul><li>评估单个Topic的消息量</li><li>考虑消息存储时间</li><li>预留足够的磁盘空间</li></ul><h3 id="3-权限控制"><a href="#3-权限控制" class="headerlink" title="3. 权限控制"></a>3. 权限控制</h3><ul><li>生产环境建议开启权限控制</li><li>按照最小权限原则设置</li><li>定期审查Topic权限</li></ul><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1-Topic创建失败"><a href="#1-Topic创建失败" class="headerlink" title="1. Topic创建失败"></a>1. Topic创建失败</h3><p>可能原因：</p><ul><li>NameServer连接失败</li><li>权限不足</li><li>Topic名称已存在</li></ul><p>解决方案：</p><ol><li>检查NameServer连接</li><li>确认操作权限</li><li>使用新的Topic名称</li></ol><h3 id="2-队列数调整"><a href="#2-队列数调整" class="headerlink" title="2. 队列数调整"></a>2. 队列数调整</h3><ul><li>Topic创建后可以增加队列数</li><li>不建议减少队列数</li><li>调整时注意评估影响</li></ul><h2 id="监控与维护"><a href="#监控与维护" class="headerlink" title="监控与维护"></a>监控与维护</h2><h3 id="1-Topic状态监控"><a href="#1-Topic状态监控" class="headerlink" title="1. Topic状态监控"></a>1. Topic状态监控</h3><ul><li>监控消息堆积情况</li><li>关注消息延迟</li><li>检查消息成功率</li></ul><h3 id="2-定期维护"><a href="#2-定期维护" class="headerlink" title="2. 定期维护"></a>2. 定期维护</h3><ul><li>清理无用Topic</li><li>优化队列配置</li><li>更新权限设置</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>合理的Topic创建和管理对于消息中间件的稳定运行至关重要。通过遵循最佳实践和规范，可以提高系统的可用性和可维护性。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://rocketmq.apache.org/docs/quick-start/">RocketMQ官方文档</a></li><li><a href="https://rocketmq.apache.org/docs/best-practice-broker/">RocketMQ最佳实践</a></li><li><a href="https://docs.docker.com/desktop/">Docker Desktop文档</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> RocketMQ </tag>
+            
+            <tag> 技术教程 </tag>
             
         </tags>
       
