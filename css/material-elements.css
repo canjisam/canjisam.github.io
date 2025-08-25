@@ -1,0 +1,128 @@
+/* Material Design 表格样式 */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+
+.post-content th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: var(--font-size-small);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.post-content td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: background-color var(--transition-fast);
+}
+
+.post-content tr:last-child td {
+  border-bottom: none;
+}
+
+.post-content tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.post-content tr:hover td {
+  background-color: rgba(255, 64, 129, 0.05);
+}
+
+/* Material Design 列表样式 */
+.post-content ul,
+.post-content ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.post-content ul li,
+.post-content ol li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.post-content ul li::before {
+  content: "";
+  position: absolute;
+  left: -1.2rem;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.post-content ol {
+  counter-reset: item;
+  list-style-type: none;
+}
+
+.post-content ol li {
+  counter-increment: item;
+}
+
+.post-content ol li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: -1.5rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Material Design 分割线样式 */
+.post-content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    var(--primary-color), 
+    var(--secondary-color), 
+    var(--accent-color));
+  margin: 2rem 0;
+  border-radius: var(--radius-small);
+}
+
+/* 友情链接波普风格增强 */
+.flink-list-item {
+  border-top: 4px solid var(--primary-color);
+  transition: all var(--transition-medium);
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+}
+
+.flink-list-item:hover {
+  border-top-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-4);
+}
+
+.flink-item-icon {
+  border-radius: var(--radius-circle);
+  transition: all var(--transition-medium);
+  border: 2px solid transparent;
+}
+
+.flink-list-item:hover .flink-item-icon {
+  transform: rotate(360deg);
+  border-color: var(--primary-color);
+}
+
+.flink-item-name {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.flink-list-item:hover .flink-item-name {
+  color: var(--primary-dark);
+}

@@ -1,0 +1,214 @@
+/* Material Design 分类页面样式 */
+.category-lists {
+  margin-top: 2rem;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.category-list-item {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-2);
+  transition: all var(--transition-medium);
+  overflow: hidden;
+  position: relative;
+  flex: 1 0 calc(33.333% - 1rem);
+  min-width: 250px;
+}
+
+.category-list-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    var(--primary-color), 
+    var(--secondary-color), 
+    var(--accent-color));
+  transition: height var(--transition-medium);
+}
+
+.category-list-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-4);
+}
+
+.category-list-item:hover::before {
+  height: 8px;
+}
+
+.category-list-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.category-list-count {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.category-list-item:hover .category-list-count {
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* Material Design 标签页面样式 */
+.tag-cloud-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.tag-cloud-tags a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--card-bg);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius-medium);
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  transition: all var(--transition-medium);
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tag-cloud-tags a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transform: translateX(-100%);
+  transition: transform var(--transition-medium);
+  z-index: -1;
+}
+
+.tag-cloud-tags a:hover {
+  color: white;
+  transform: translateY(-3px) rotate(2deg);
+  box-shadow: var(--shadow-3);
+}
+
+.tag-cloud-tags a:hover::before {
+  transform: translateX(0);
+}
+
+/* Material Design 归档页面样式 */
+.article-sort {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.article-sort-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.article-sort-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.article-sort-item {
+  position: relative;
+  margin-left: 1rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.article-sort-item::before {
+  content: "";
+  position: absolute;
+  left: -0.25rem;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  z-index: 2;
+  transition: all var(--transition-fast);
+}
+
+.article-sort-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: var(--primary-light);
+  z-index: 1;
+}
+
+.article-sort-item:last-child::after {
+  display: none;
+}
+
+.article-sort-item:hover::before {
+  background-color: var(--secondary-color);
+  transform: scale(1.5);
+}
+
+.article-sort-item-time {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.article-sort-item-title {
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.article-sort-item:hover .article-sort-item-title {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .category-list-item {
+    flex: 1 0 calc(50% - 1rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .category-list-item {
+    flex: 1 0 100%;
+  }
+}

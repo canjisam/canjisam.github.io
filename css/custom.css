@@ -1,16 +1,611 @@
+/* 导入Material Design和波普艺术配色方案 */
+@import 'material-pop.css';
+@import 'material-elements.css';
+@import 'material-pages.css';
+
+/* 全局样式 */
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+/* Material Design卡片样式 */
+#recent-posts > .recent-post-item,
+.card-widget,
+#post,
+.post-reward,
+#comments,
+.pagination,
+.category-lists,
+.tag-cloud,
+.archive {
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-2);
+  transition: box-shadow var(--transition-medium), transform var(--transition-medium);
+  overflow: hidden;
+  background-color: var(--card-bg);
+}
+
+#recent-posts > .recent-post-item:hover,
+.card-widget:hover {
+  box-shadow: var(--shadow-4);
+  transform: translateY(-2px);
+}
+
+/* 导航栏样式 */
+#nav {
+  background-color: var(--primary-color);
+  box-shadow: var(--shadow-3);
+  position: relative;
+  z-index: 100;
+}
+
+#nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0.05), 
+    rgba(255, 255, 255, 0));
+  z-index: -1;
+}
+
+#nav a {
+  color: var(--text-light);
+  font-weight: 500;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+#nav a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+#nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#site-name {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.site-name-animation {
+  display: inline-block;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+#site-name:hover .site-name-animation {
+  transform: translateY(-2px);
+  color: var(--accent-light);
+}
+
+/* 波普艺术风格按钮 */
+.button-primary,
+#post-reward-button,
+.error-button,
+.search-button,
+#pagination .page-number.current {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-small);
+  padding: 8px 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-1);
+  transition: background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.button-primary:hover,
+#post-reward-button:hover,
+.error-button:hover,
+.search-button:hover {
+  background: var(--primary-dark);
+  box-shadow: var(--shadow-3);
+  transform: translateY(-1px);
+}
+
+/* 波普艺术风格标题 */
+.article-title,
+.post-title,
+.archive-title,
+.category-title,
+.tag-title,
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* 波普艺术风格标签 */
+.tag-cloud-tags a {
+  background: var(--card-bg);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius-medium);
+  padding: 4px 12px;
+  margin: 4px;
+  display: inline-block;
+  transition: all var(--transition-fast);
+}
+
+.tag-cloud-tags a:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* 波普艺术风格分类 */
+.category-list-item {
+  transition: all var(--transition-fast);
+}
+
+.category-list-item:hover {
+  transform: translateX(5px);
+}
+
+.category-list-count {
+  background: var(--accent-color);
+  color: var(--text-primary);
+  border-radius: var(--radius-circle);
+  padding: 2px 8px;
+  font-size: var(--font-size-small);
+  font-weight: 700;
+}
+
+/* 文章内容样式 */
+.post-content {
+  font-size: var(--font-size-body);
+  line-height: 1.8;
+  position: relative;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  position: relative;
+  margin: 1.5em 0 0.8em;
+  padding-left: var(--spacing-md);
+  border-left: 4px solid var(--primary-color);
+  transition: all var(--transition-fast);
+  overflow: hidden;
+}
+
+.post-content h1:hover,
+.post-content h2:hover,
+.post-content h3:hover,
+.post-content h4:hover,
+.post-content h5:hover,
+.post-content h6:hover {
+  padding-left: var(--spacing-lg);
+}
+
+.post-content h1::after,
+.post-content h2::after,
+.post-content h3::after,
+.post-content h4::after,
+.post-content h5::after,
+.post-content h6::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing-md);
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+  transform: translateX(-100%);
+  transition: transform var(--transition-medium);
+}
+
+.post-content h1:hover::after,
+.post-content h2:hover::after,
+.post-content h3:hover::after,
+.post-content h4:hover::after,
+.post-content h5:hover::after,
+.post-content h6:hover::after {
+  transform: translateX(0);
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--secondary-color);
+  background-color: rgba(0, 229, 255, 0.1);
+  border-radius: 0 var(--radius-small) var(--radius-small) 0;
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.post-content blockquote::before {
+  content: """;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 5rem;
+  color: var(--secondary-color);
+  opacity: 0.2;
+  font-family: serif;
+}
+
+.post-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.post-content a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-color);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.post-content a:hover {
+  color: var(--primary-dark);
+}
+
+.post-content a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.post-content img {
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-2);
+  transition: all var(--transition-medium);
+}
+
+.post-content img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-4);
+}
+
+/* 代码块样式 */
+/* .post-content pre {
+  border-radius: var(--radius-small);
+  background: var(--code-bg);
+  box-shadow: var(--shadow-2);
+  transition: all var(--transition-medium);
+  border-left: 4px solid var(--primary-color);
+  margin: 1.5rem 0;
+}
+
+.post-content pre:hover {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-2px);
+} */
+
+.highlight-tools {
+  background: var(--primary-dark);
+  color: white;
+  border-radius: var(--radius-small) var(--radius-small) 0 0;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.highlight-tools .copy-button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-small);
+  padding: 4px 8px;
+}
+
+.highlight-tools .copy-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.highlight-tools .copy-button:active {
+  transform: scale(0.95);
+}
+
+.highlight-tools .code-lang {
+  margin-right: auto;
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* 行内代码样式 */
+/* .post-content code:not([class*="language-"]) {
+  background: rgba(255, 64, 129, 0.1);
+  color: var(--primary-color);
+  padding: 2px 5px;
+  border-radius: var(--radius-small);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  transition: all var(--transition-fast);
+}
+
+.post-content code:not([class*="language-"]):hover {
+  background: rgba(255, 64, 129, 0.2);
+} */
+
+/* 波普艺术风格目录 */
+#aside-content .card-widget {
+  border-top: 4px solid var(--primary-color);
+}
+
+#aside-content .item-headline {
+  color: var(--primary-color);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary-light);
+  padding-bottom: var(--spacing-xs);
+}
+
+/* 波普艺术风格页脚 */
+#footer {
+  background: var(--primary-dark);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+#footer::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--pop-purple);
+  border-radius: 50%;
+  opacity: 0.1;
+  top: -100px;
+  left: -100px;
+}
+
+#footer::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.1;
+  bottom: -50px;
+  right: -50px;
+}
+
+#footer a {
+  color: var(--accent-light);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+#footer a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+#footer a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-light);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+#footer a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* 波普艺术风格滚动条 */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: var(--radius-small);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+/* 波普艺术风格阅读进度条 */
+.reading-progress-bar {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color), var(--pop-purple));
+  height: 4px;
+}
+
+/* Material Design 波纹效果 */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active:after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* 首页文章卡片波普风格 */
+#recent-posts > .recent-post-item {
+  border-left: 5px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-medium);
+}
+
+#recent-posts > .recent-post-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 64, 129, 0.05) 0%, 
+    rgba(0, 229, 255, 0.05) 50%, 
+    rgba(255, 234, 0, 0.05) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+  z-index: 0;
+}
+
+#recent-posts > .recent-post-item:hover::before {
+  opacity: 1;
+}
+
+#recent-posts > .recent-post-item:nth-child(2n) {
+  border-left-color: var(--secondary-color);
+}
+
+#recent-posts > .recent-post-item:nth-child(3n) {
+  border-left-color: var(--accent-color);
+}
+
+#recent-posts > .recent-post-item:nth-child(4n) {
+  border-left-color: var(--pop-purple);
+}
+
+#recent-posts > .recent-post-item:nth-child(5n) {
+  border-left-color: var(--pop-orange);
+}
+
+#recent-posts > .recent-post-item .post-title {
+  position: relative;
+  transition: transform var(--transition-medium);
+}
+
+#recent-posts > .recent-post-item:hover .post-title {
+  transform: translateX(5px);
+}
+
+#recent-posts > .recent-post-item .post-meta {
+  position: relative;
+  transition: all var(--transition-medium);
+}
+
+#recent-posts > .recent-post-item:hover .post-meta {
+  color: var(--primary-color);
+}
+
+/* 波普艺术风格头像 */
+.avatar-img {
+  border: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-3);
+  transition: all var(--transition-medium);
+}
+
+.avatar-img:hover {
+  transform: rotate(5deg) scale(1.05);
+  border-color: var(--secondary-color);
+}
+
+/* 波普艺术风格社交图标 */
+#aside-content .social-icons a {
+  color: var(--primary-color);
+  border-radius: var(--radius-circle);
+  transition: all var(--transition-fast);
+  margin: 0 var(--spacing-xs);
+}
+
+#aside-content .social-icons a:hover {
+  color: white;
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* 波普艺术风格搜索框 */
+.search-form {
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+
+.search-form-input {
+  border: none;
+  padding: var(--spacing-md);
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+/* 404页面波普风格 */
+.error-container {
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+}
+
+.error-number {
+  text-shadow: 3px 3px 0 var(--pop-purple), 6px 6px 0 var(--pop-orange);
+}
+
+/* 友情链接波普风格 */
+.flink-list-item {
+  border-top: 4px solid var(--primary-color);
+  transition: all var(--transition-medium);
+}
+
+.flink-list-item:hover {
+  border-top-color: var(--secondary-color);
+}
+
 /* 页脚自定义文本样式 */
 .footer-custom {
-  margin-top: 1rem;
-  font-size: 0.9rem;
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-small);
   color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-custom a {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--accent-light);
   text-decoration: underline;
-  transition: all 0.3s ease;
+  transition: all var(--transition-fast);
 }
 
 .footer-custom a:hover {
-  color: #fff;
+  color: white;
 }
