@@ -1,0 +1,16 @@
+/* 页脚自定义文本样式 */
+.footer-custom {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-custom a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.footer-custom a:hover {
+  color: #fff;
+}
