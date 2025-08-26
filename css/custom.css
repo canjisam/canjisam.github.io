@@ -290,7 +290,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 代码块样式 */
-/* .post-content pre {
+.post-content pre {
   border-radius: var(--radius-small);
   background: var(--code-bg);
   box-shadow: var(--shadow-2);
@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6 {
 .post-content pre:hover {
   box-shadow: var(--shadow-3);
   transform: translateY(-2px);
-} */
+}
 
 .highlight-tools {
   background: var(--primary-dark);
@@ -340,7 +340,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 行内代码样式 */
-/* .post-content code:not([class*="language-"]) {
+.post-content code:not([class*="language-"]) {
   background: rgba(255, 64, 129, 0.1);
   color: var(--primary-color);
   padding: 2px 5px;
@@ -352,7 +352,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .post-content code:not([class*="language-"]):hover {
   background: rgba(255, 64, 129, 0.2);
-} */
+}
 
 /* 波普艺术风格目录 */
 #aside-content .card-widget {
